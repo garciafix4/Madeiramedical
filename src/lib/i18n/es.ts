@@ -17,9 +17,10 @@ export const es = {
     badge: "Último consultorio disponible",
     headline: "Madeira Medical Group",
     subheadline: "Puerto Vallarta",
+    slogan: "El consultorio que tu práctica merece.",
     body: "Consultorios modernos en la zona con la más alta densidad médica de Puerto Vallarta. Secretaria e infraestructura incluidas desde el primer día.",
     cta1: { label: "Contáctanos", href: "#contacto" },
-    cta2: { label: "Agendar Cita", href: "#agenda" },
+    cta2: { label: "Ver consultorios", href: "#renta" },
   },
   agenda: {
     headline: "Agenda una consulta",

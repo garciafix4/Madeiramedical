@@ -40,43 +40,85 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
 
           {/* ── HERO ───────────────────────────────────────────────── */}
           <section
-            className="relative overflow-hidden py-24 md:py-40 hero-pattern diagonal-bottom"
-            style={{ background: "linear-gradient(135deg, #012030 0%, #023047 40%, #046b9f 100%)" }}
+            className="relative overflow-hidden hero-pattern diagonal-bottom"
+            style={{ background: "linear-gradient(135deg, #012030 0%, #023047 50%, #046b9f 100%)", minHeight: "calc(100vh - 80px)" }}
           >
-            <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full opacity-10 animate-pulse" style={{ backgroundColor: "#46b3e6" }} />
-            <div className="absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full opacity-[0.07] animate-pulse" style={{ backgroundColor: "#0891b2", animationDelay: "1.5s" }} />
+            {/* Background blobs */}
+            <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full opacity-[0.06] animate-pulse" style={{ backgroundColor: "#46b3e6" }} />
 
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-3xl">
-                <AnimatedSection delay={0.1}>
-                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-8 border border-white/20" style={{ backgroundColor: "rgba(4,107,159,0.5)", color: "#fff", backdropFilter: "blur(8px)" }}>
-                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    {d.hero.badge}
-                  </span>
-                </AnimatedSection>
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+              <div className="grid lg:grid-cols-2 gap-12 items-center py-20 md:py-28">
 
-                <AnimatedSection delay={0.2}>
-                  <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-3 gradient-text">{d.hero.headline}</h1>
-                  <p className="text-2xl md:text-3xl font-light text-white/70 mb-6 tracking-wide">{d.hero.subheadline}</p>
-                </AnimatedSection>
+                {/* Left — text content */}
+                <div>
+                  <AnimatedSection delay={0.1}>
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-8 border border-white/20" style={{ backgroundColor: "rgba(4,107,159,0.5)", color: "#fff", backdropFilter: "blur(8px)" }}>
+                      <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                      {d.hero.badge}
+                    </span>
+                  </AnimatedSection>
 
-                <AnimatedSection delay={0.35}>
-                  <p className="text-lg text-white/60 mb-10 max-w-xl leading-relaxed">{d.hero.body}</p>
-                </AnimatedSection>
+                  <AnimatedSection delay={0.2}>
+                    {/* Brand name small */}
+                    <p className="text-white/50 text-sm font-medium uppercase tracking-widest mb-3">{d.hero.headline} · {d.hero.subheadline}</p>
+                    {/* Slogan — main headline */}
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
+                      {d.hero.slogan.split(" ").map((word, i, arr) =>
+                        i === arr.length - 1 ? (
+                          <span key={i} className="gradient-text">{word}</span>
+                        ) : (
+                          <span key={i}>{word} </span>
+                        )
+                      )}
+                    </h1>
+                  </AnimatedSection>
 
-                <AnimatedSection delay={0.5}>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <a href={d.hero.cta1.href} className="btn-gradient inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold text-base text-white">
-                      {d.hero.cta1.label}
-                    </a>
-                    <a href={d.hero.cta2.href} className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold text-base border border-white/25 text-white hover:bg-white/10 transition-all hover:border-white/50" style={{ backdropFilter: "blur(8px)" }}>
-                      {d.hero.cta2.label}
-                    </a>
+                  <AnimatedSection delay={0.35}>
+                    <p className="text-lg text-white/60 mb-10 leading-relaxed">{d.hero.body}</p>
+                  </AnimatedSection>
+
+                  <AnimatedSection delay={0.5}>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <a href={d.hero.cta1.href} className="btn-gradient inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold text-base text-white">
+                        {d.hero.cta1.label}
+                      </a>
+                      <a href={d.hero.cta2.href} className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold text-base border border-white/25 text-white hover:bg-white/10 transition-all hover:border-white/50" style={{ backdropFilter: "blur(8px)" }}>
+                        {d.hero.cta2.label}
+                      </a>
+                    </div>
+                    <p className="mt-6 text-white/40 text-sm">
+                      <a href={`tel:${SITE.phone}`} className="text-white/70 hover:text-white transition-colors underline">{SITE.phone}</a>
+                    </p>
+                  </AnimatedSection>
+                </div>
+
+                {/* Right — photo */}
+                <AnimatedSection direction="right" delay={0.3} className="relative hidden lg:block">
+                  {/* Decorative ring */}
+                  <div className="absolute -inset-4 rounded-3xl opacity-20 blur-xl" style={{ background: "linear-gradient(135deg, #46b3e6, #046b9f)" }} />
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
+                    <Image
+                      src="/hero-photo.jpg"
+                      alt="Médico especialista en Madeira Medical Group Puerto Vallarta"
+                      width={1600}
+                      height={950}
+                      className="w-full h-auto object-cover"
+                      priority
+                      quality={85}
+                    />
+                    {/* Subtle overlay at bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 h-24" style={{ background: "linear-gradient(to top, rgba(2,48,71,0.6), transparent)" }} />
+                    {/* Floating badge */}
+                    <div className="absolute bottom-5 left-5 right-5 glass-card rounded-2xl px-4 py-3 flex items-center gap-3">
+                      <span className="text-2xl">⚕️</span>
+                      <div>
+                        <p className="text-white font-semibold text-sm">{d.hero.headline}</p>
+                        <p className="text-white/60 text-xs">{d.hero.subheadline}</p>
+                      </div>
+                    </div>
                   </div>
-                  <p className="mt-6 text-white/50 text-sm">
-                    <a href={`tel:${SITE.phone}`} className="text-white/80 hover:text-white underline">{SITE.phone}</a>
-                  </p>
                 </AnimatedSection>
+
               </div>
             </div>
 

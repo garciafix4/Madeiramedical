@@ -19,7 +19,7 @@ export const en: Dict = {
     badge: "Last office available",
     headline: "Madeira Medical Group",
     subheadline: "Puerto Vallarta",
-    slogan: "The office your practice deserves.",
+    slogan: "Here, every patient matters. Every doctor too.",
     body: "Modern medical offices in Puerto Vallarta's highest-density medical district. Secretary and full infrastructure included from day one.",
     cta1: { label: "Contact Us", href: "#contacto" },
     cta2: { label: "View offices", href: "#renta" },

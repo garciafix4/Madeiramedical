@@ -62,14 +62,12 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
                     {/* Brand name small */}
                     <p className="text-white/50 text-sm font-medium uppercase tracking-widest mb-3">{d.hero.headline} · {d.hero.subheadline}</p>
                     {/* Slogan — main headline */}
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
-                      {d.hero.slogan.split(" ").map((word, i, arr) =>
-                        i === arr.length - 1 ? (
-                          <span key={i} className="gradient-text">{word}</span>
-                        ) : (
-                          <span key={i}>{word} </span>
-                        )
-                      )}
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-snug mb-6 text-white">
+                      {d.hero.slogan.split(". ").map((sentence, i, arr) => (
+                        <span key={i} className={`block ${i === arr.length - 1 ? "gradient-text" : ""}`}>
+                          {sentence}{i < arr.length - 1 ? "." : ""}
+                        </span>
+                      ))}
                     </h1>
                   </AnimatedSection>
 

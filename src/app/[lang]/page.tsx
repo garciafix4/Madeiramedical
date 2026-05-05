@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { getDict, SPECIALTIES } from "@/lib/i18n";
 import { SITE } from "@/lib/content";
-import { ContactForm } from "@/components/ContactForm";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Navbar } from "@/components/Navbar";
@@ -37,7 +36,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
       <Navbar d={d} />
 
       <div className="flex flex-col min-h-screen font-sans">
-        <main className="flex-1 pt-16">
+        <main className="flex-1 pt-20">
 
           {/* ── HERO ───────────────────────────────────────────────── */}
           <section
@@ -228,35 +227,33 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
 
           {/* ── CONTACT ────────────────────────────────────────────── */}
           <section id="contacto" className="py-24 px-4 bg-white">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-12 items-start">
-                <AnimatedSection direction="left">
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4" style={{ backgroundColor: "#e0f2fe", color: "#023047" }}>
-                    {d.contact.badge}
+            <div className="max-w-3xl mx-auto text-center">
+              <AnimatedSection>
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4" style={{ backgroundColor: "#e0f2fe", color: "#023047" }}>
+                  {d.contact.badge}
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#023047" }}>{d.contact.headline}</h2>
+                <p className="text-gray-500 mb-10 leading-relaxed">{d.contact.body}</p>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+                  <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-lg transition-all hover:scale-105 hover:shadow-xl" style={{ backgroundColor: "#25D366" }}>
+                    💬 {d.contact.whatsapp}
+                  </a>
+                  <a href={`tel:${SITE.phone}`} className="btn-gradient inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-lg">
+                    📞 {SITE.phone}
+                  </a>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-500">
+                  <a href={`mailto:${SITE.email}`} className="flex items-center gap-2 hover:text-blue-700 transition-colors">
+                    <span>✉️</span><span>{SITE.email}</span>
+                  </a>
+                  <span className="hidden sm:block text-gray-200">|</span>
+                  <span className="flex items-center gap-2">
+                    <span>📍</span><span>{SITE.address}</span>
                   </span>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#023047" }}>{d.contact.headline}</h2>
-                  <p className="text-gray-500 mb-8 leading-relaxed">{d.contact.body}</p>
-
-                  <div className="space-y-4">
-                    <a href={`tel:${SITE.phone}`} className="flex items-center gap-3 text-gray-700 hover:text-blue-700 transition-colors">
-                      <span className="text-xl">📞</span><span>{SITE.phone}</span>
-                    </a>
-                    <a href={`mailto:${SITE.email}`} className="flex items-center gap-3 text-gray-700 hover:text-blue-700 transition-colors">
-                      <span className="text-xl">✉️</span><span>{SITE.email}</span>
-                    </a>
-                    <div className="flex items-start gap-3 text-gray-700">
-                      <span className="text-xl mt-0.5">📍</span><span>{SITE.address}</span>
-                    </div>
-                    <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-xl font-semibold text-white transition-all hover:scale-105 hover:shadow-lg" style={{ backgroundColor: "#25D366" }}>
-                      <span>💬</span> {d.contact.whatsapp}
-                    </a>
-                  </div>
-                </AnimatedSection>
-
-                <AnimatedSection direction="right">
-                  <ContactForm d={d} specialties={specialties} />
-                </AnimatedSection>
-              </div>
+                </div>
+              </AnimatedSection>
             </div>
           </section>
         </main>

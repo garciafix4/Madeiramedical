@@ -24,7 +24,7 @@ export function Navbar({ d }: Props) {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-20"
       style={{
         backgroundColor: scrolled ? "#023047" : "rgba(2,48,71,0.85)",
         backdropFilter: "blur(12px)",
@@ -33,7 +33,7 @@ export function Navbar({ d }: Props) {
       }}
       id="inicio"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <a href="#inicio" className="flex items-center">
           <Image
@@ -41,7 +41,7 @@ export function Navbar({ d }: Props) {
             alt="Madeira Medical Group"
             width={180}
             height={90}
-            className="h-14 w-auto brightness-0 invert"
+            className="h-16 w-auto brightness-0 invert"
             priority
           />
         </a>

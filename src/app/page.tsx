@@ -41,41 +41,42 @@ export default function Home() {
 
           {/* ── HERO ─────────────────────────────────────────────────── */}
           <section
-            className="relative overflow-hidden py-24 md:py-40"
-            style={{ background: "linear-gradient(135deg, #023047 0%, #046b9f 60%, #0891b2 100%)" }}
+            className="relative overflow-hidden py-24 md:py-40 hero-pattern diagonal-bottom"
+            style={{ background: "linear-gradient(135deg, #012030 0%, #023047 40%, #046b9f 100%)" }}
           >
             {/* Animated background blobs */}
             <div
-              className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full opacity-10 animate-pulse"
+              className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full opacity-10 animate-pulse"
               style={{ backgroundColor: "#46b3e6" }}
             />
             <div
-              className="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full opacity-10 animate-pulse"
-              style={{ backgroundColor: "#023047", animationDelay: "1s" }}
+              className="absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full opacity-[0.07] animate-pulse"
+              style={{ backgroundColor: "#0891b2", animationDelay: "1.5s" }}
             />
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl">
                 <AnimatedSection delay={0.1}>
                   <span
-                    className="inline-block px-3 py-1 rounded-full text-sm font-semibold mb-6"
-                    style={{ backgroundColor: "#046b9f", color: "#fff" }}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-8 border border-white/20"
+                    style={{ backgroundColor: "rgba(4,107,159,0.5)", color: "#fff", backdropFilter: "blur(8px)" }}
                   >
-                    🏥 {HERO.badge}
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                    {HERO.badge}
                   </span>
                 </AnimatedSection>
 
                 <AnimatedSection delay={0.2}>
-                  <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-2">
+                  <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-3 gradient-text">
                     {HERO.headline}
                   </h1>
-                  <p className="text-2xl md:text-3xl font-light text-white/80 mb-6">
+                  <p className="text-2xl md:text-3xl font-light text-white/70 mb-6 tracking-wide">
                     {HERO.subheadline}
                   </p>
                 </AnimatedSection>
 
                 <AnimatedSection delay={0.35}>
-                  <p className="text-lg text-white/70 mb-10 max-w-xl leading-relaxed">
+                  <p className="text-lg text-white/60 mb-10 max-w-xl leading-relaxed">
                     {HERO.body}
                   </p>
                 </AnimatedSection>
@@ -84,14 +85,14 @@ export default function Home() {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <a
                       href={HERO.cta1.href}
-                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold text-base text-white transition-all hover:opacity-90 hover:scale-105 hover:shadow-lg"
-                      style={{ backgroundColor: "#046b9f" }}
+                      className="btn-gradient inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold text-base text-white"
                     >
                       {HERO.cta1.label}
                     </a>
                     <a
                       href={HERO.cta2.href}
-                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold text-base border-2 border-white/40 text-white hover:bg-white/10 transition-all hover:scale-105"
+                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold text-base border border-white/25 text-white hover:bg-white/10 transition-all hover:border-white/50"
+                      style={{ backdropFilter: "blur(8px)" }}
                     >
                       {HERO.cta2.label}
                     </a>
@@ -126,8 +127,8 @@ export default function Home() {
                   href={AGENDA.cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shrink-0 inline-flex items-center px-7 py-3 rounded-xl font-semibold bg-white transition-all hover:scale-105 hover:shadow-lg"
-                  style={{ color: "#023047" }}
+                  className="shrink-0 inline-flex items-center px-7 py-3 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-xl"
+                  style={{ backgroundColor: "rgba(255,255,255,0.95)", color: "#023047", boxShadow: "0 4px 15px rgba(0,0,0,0.2)" }}
                 >
                   {AGENDA.cta.label}
                 </a>
@@ -228,8 +229,7 @@ export default function Home() {
                   href={RENTAL.cta2.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-8 py-3 rounded-xl font-semibold text-base text-white transition-all hover:opacity-90 hover:scale-105 hover:shadow-lg"
-                  style={{ backgroundColor: "#023047" }}
+                  className="btn-gradient inline-flex items-center justify-center px-8 py-3 rounded-xl font-semibold text-base text-white"
                 >
                   {RENTAL.cta2.label}
                 </a>
@@ -272,7 +272,7 @@ export default function Home() {
           </section>
 
           {/* ── WHY CHOOSE ───────────────────────────────────────────── */}
-          <section className="py-24 px-4" style={{ backgroundColor: "#023047" }}>
+          <section className="py-24 px-4 diagonal-top" style={{ backgroundColor: "#023047" }}>
             <div className="max-w-7xl mx-auto">
               <AnimatedSection className="text-center mb-14">
                 <span
@@ -287,10 +287,7 @@ export default function Home() {
               <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {WHY.cards.map((card) => (
                   <StaggerItem key={card.title}>
-                    <div
-                      className="rounded-2xl p-6 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 h-full"
-                      style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
-                    >
+                    <div className="glass-card rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full cursor-default">
                       <div className="text-4xl mb-4">{card.icon}</div>
                       <h3 className="font-bold text-lg text-white mb-3">{card.title}</h3>
                       <p className="text-white/60 text-sm leading-relaxed">{card.description}</p>

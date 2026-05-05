@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { getDict } from "@/lib/i18n";
-import type { Lang } from "@/lib/i18n";
-
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const d = getDict(lang);
@@ -39,7 +37,7 @@ export default async function LangLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: Lang }>;
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
   return <div lang={lang}>{children}</div>;

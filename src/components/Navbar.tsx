@@ -3,9 +3,13 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { NAV } from "@/lib/content";
+import type { Dict } from "@/lib/i18n/es";
 
-export function Navbar() {
+interface Props {
+  d: Dict;
+}
+
+export function Navbar({ d }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -44,7 +48,7 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-6">
-          {NAV.links.map((link) => (
+          {d.nav.links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -55,31 +59,33 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* CTA */}
-        <a
-          href={NAV.ctaHref}
-          className="hidden sm:inline-flex items-center px-4 py-2 rounded-md text-sm font-semibold text-white transition-all hover:opacity-90 hover:scale-105"
-          style={{ backgroundColor: "#046b9f" }}
-        >
-          {NAV.ctaLabel}
-        </a>
+        {/* Right side: lang switcher + CTA */}
+        <div className="hidden sm:flex items-center gap-3">
+          {/* Language switcher */}
+          <a
+            href={d.nav.langHref}
+            className="text-sm text-white/60 hover:text-white transition-colors border border-white/20 hover:border-white/40 px-3 py-1.5 rounded-lg"
+          >
+            {d.nav.langSwitch}
+          </a>
+          <a
+            href={d.nav.ctaHref}
+            className="btn-gradient inline-flex items-center px-4 py-2 rounded-md text-sm font-semibold text-white"
+          >
+            {d.nav.ctaLabel}
+          </a>
+        </div>
 
         {/* Mobile hamburger */}
         <button
           className="lg:hidden text-white p-2"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menú"
+          aria-label="Menu"
         >
           <div className="space-y-1.5">
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-            />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </div>
         </button>
       </div>
@@ -89,12 +95,11 @@ export function Navbar() {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
           className="lg:hidden border-t border-white/10"
           style={{ backgroundColor: "#023047" }}
         >
           <nav className="flex flex-col px-4 py-4 gap-4">
-            {NAV.links.map((link) => (
+            {d.nav.links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -104,14 +109,21 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href={NAV.ctaHref}
-              className="inline-flex items-center justify-center px-4 py-2 rounded-md text-sm font-semibold text-white mt-2"
-              style={{ backgroundColor: "#046b9f" }}
-              onClick={() => setMenuOpen(false)}
-            >
-              {NAV.ctaLabel}
-            </a>
+            <div className="flex gap-3 mt-2">
+              <a
+                href={d.nav.langHref}
+                className="flex-1 text-center py-2 rounded-lg border border-white/20 text-white/70 text-sm"
+              >
+                {d.nav.langSwitch}
+              </a>
+              <a
+                href={d.nav.ctaHref}
+                className="btn-gradient flex-1 text-center py-2 rounded-lg font-semibold text-white text-sm"
+                onClick={() => setMenuOpen(false)}
+              >
+                {d.nav.ctaLabel}
+              </a>
+            </div>
           </nav>
         </motion.div>
       )}

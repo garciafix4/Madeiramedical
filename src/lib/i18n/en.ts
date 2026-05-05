@@ -1,0 +1,113 @@
+import type { Dict } from "./es";
+
+export const en: Dict = {
+  nav: {
+    links: [
+      { label: "Home", href: "#inicio" },
+      { label: "Book Appointment", href: "#agenda" },
+      { label: "Rent Office", href: "#renta" },
+      { label: "Specialties", href: "#especialidades" },
+      { label: "Doctors", href: "#medicos" },
+      { label: "Contact", href: "#contacto" },
+    ],
+    ctaLabel: "Rent an Office",
+    ctaHref: "#renta",
+    langSwitch: "Español",
+    langHref: "/es",
+  },
+  hero: {
+    badge: "Last office available",
+    headline: "Madeira Medical Group",
+    subheadline: "Puerto Vallarta",
+    body: "Modern medical offices in Puerto Vallarta's highest-density medical district. Secretary and full infrastructure included from day one.",
+    cta1: { label: "Contact Us", href: "#contacto" },
+    cta2: { label: "Book Appointment", href: "#agenda" },
+  },
+  agenda: {
+    headline: "Book a consultation",
+    body: "Are you a doctor looking for a professional space to see your patients? Contact us for a free consultation.",
+    cta: { label: "Book now →", href: "https://wa.me/523222936235?text=Hello,%20I%20would%20like%20to%20book%20a%20consultation%20about%20renting%20a%20medical%20office." },
+  },
+  location: {
+    badge: "Prime location",
+    headline: "In the heart of Versalles, Puerto Vallarta",
+    body: "Our offices are located in Puerto Vallarta's highest-density medical zone. Versalles is a beloved landmark among tourists and foreign residents, with organized urban planning and privileged access for your patients.",
+    stats: [
+      { value: "55+", label: "Families in Punto Madeira complex" },
+      { value: "#1", label: "Medical tourism zone in PV" },
+      { value: "100%", label: "Infrastructure included" },
+    ],
+    mapsLabel: "View on Google Maps",
+  },
+  rental: {
+    badge: "Rent your office today",
+    headline: "Choose the best option for your medical practice",
+    body: "Madeira Medical Group offers the finest facilities so you can deliver quality patient care from day one. Everything included, no complications.",
+    features: [
+      { icon: "🏥", title: "Modern offices", description: "Spaces equipped with high-quality medical furniture and premium finishes." },
+      { icon: "👩‍💼", title: "Secretary included", description: "Appointment management and patient reception from the moment you arrive." },
+      { icon: "📅", title: "Appointment management", description: "Professional scheduling system with automatic patient reminders." },
+      { icon: "📶", title: "High-speed internet", description: "Enterprise-grade connectivity for digital records and telemedicine." },
+      { icon: "🅿️", title: "Parking", description: "Doctor and patient access within the Punto Madeira complex." },
+      { icon: "💰", title: "Immediate ROI", description: "Maximize returns from day one with a high-traffic prime location." },
+    ],
+    cta1: { label: "Download pricing", href: "#contacto" },
+    cta2: { label: "Rent now", href: "https://wa.me/523222936235?text=Hello,%20I%20would%20like%20to%20rent%20a%20medical%20office%20at%20Madeira%20Medical%20Group." },
+  },
+  doctors: {
+    badge: "Medical Specialists",
+    headline: "Our team of specialists",
+    body: "We have the finest specialists across multiple medical fields to provide comprehensive care for all our patients.",
+  },
+  why: {
+    badge: "Why choose us?",
+    headline: "Why choose Madeira Medical Group?",
+    cards: [
+      { icon: "📍", title: "Prime Location", description: "Located in Versalles, Puerto Vallarta's most recognized neighborhood, with the highest concentration of local and international patient flow." },
+      { icon: "✈️", title: "Medical Tourism", description: "Puerto Vallarta is Mexico's top-ranked medical tourism destination. Your patients will find you from anywhere in the world." },
+      { icon: "🗓️", title: "Appointment Management", description: "Secretary and scheduling system included. Focus on your patients — we handle the operations." },
+      { icon: "📈", title: "Immediate Return on Investment", description: "Maximize your location advantage within Punto Madeira, a mixed-use residential complex with 55+ families." },
+    ],
+  },
+  contact: {
+    badge: "Contact",
+    headline: "Talk to us today",
+    body: "Our team is ready to advise you and show you available offices with no commitment.",
+    fields: {
+      name: "Full name",
+      email: "Email address",
+      phone: "Phone / WhatsApp",
+      specialty: "Medical specialty",
+      message: "Message (optional)",
+      submit: "Send message",
+      placeholder: {
+        name: "Dr. John Smith",
+        email: "doctor@example.com",
+        phone: "+1 555 000 0000",
+        specialty: "Select your specialty",
+        specialtyOther: "Other specialty",
+        message: "Tell us more about your needs...",
+      },
+    },
+    whatsapp: "Message us on WhatsApp",
+  },
+  footer: {
+    tagline: "Premium medical offices in Puerto Vallarta.",
+    nav: "Navigation",
+    contactTitle: "Contact",
+    copyright: `© ${new Date().getFullYear()} Madeira Medical Group. All rights reserved.`,
+    credit: "Built by HOMIA Digital",
+    links: [
+      { label: "Home", href: "#inicio" },
+      { label: "Rent an Office", href: "#renta" },
+      { label: "Specialties", href: "#especialidades" },
+      { label: "Doctors", href: "#medicos" },
+      { label: "Contact", href: "#contacto" },
+    ],
+  },
+  meta: {
+    title: "Medical Office Rental Puerto Vallarta | Madeira Medical Group",
+    description: "Modern medical offices for rent in Puerto Vallarta, Mexico. Located in Versalles, the city's top medical district. Secretary included. Last office available.",
+    keywords: ["medical office rental Puerto Vallarta", "doctor office rent Puerto Vallarta", "Madeira Medical Group", "medical tourism Puerto Vallarta", "consultorio medico Puerto Vallarta"],
+  },
+};

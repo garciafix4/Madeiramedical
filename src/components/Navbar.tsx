@@ -61,12 +61,14 @@ export function Navbar({ d }: Props) {
 
         {/* Right side: lang switcher + CTA */}
         <div className="hidden sm:flex items-center gap-3">
-          {/* Language switcher */}
+          {/* Language toggle pill */}
           <a
             href={d.nav.langHref}
-            className="text-sm text-white/60 hover:text-white transition-colors border border-white/20 hover:border-white/40 px-3 py-1.5 rounded-lg"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-all hover:scale-105"
+            style={{ backgroundColor: "rgba(255,255,255,0.12)", color: "#fff", border: "1px solid rgba(255,255,255,0.25)" }}
           >
-            {d.nav.langSwitch}
+            <span>{d.nav.langHref === "/en" ? "🇺🇸" : "🇲🇽"}</span>
+            <span>{d.nav.langSwitch}</span>
           </a>
           <a
             href={d.nav.ctaHref}
@@ -112,9 +114,11 @@ export function Navbar({ d }: Props) {
             <div className="flex gap-3 mt-2">
               <a
                 href={d.nav.langHref}
-                className="flex-1 text-center py-2 rounded-lg border border-white/20 text-white/70 text-sm"
+                className="flex-1 text-center py-2 rounded-lg border border-white/25 text-white text-sm font-medium flex items-center justify-center gap-1.5"
+                style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
               >
-                {d.nav.langSwitch}
+                <span>{d.nav.langHref === "/en" ? "🇺🇸" : "🇲🇽"}</span>
+                <span>{d.nav.langSwitch}</span>
               </a>
               <a
                 href={d.nav.ctaHref}

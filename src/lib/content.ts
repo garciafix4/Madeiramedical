@@ -11,7 +11,7 @@ export const SITE = {
   address: "Havre #239-101, Col. Díaz Ordaz, Puerto Vallarta, Jalisco",
   whatsapp: "523222936235",
   mapsEmbed:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.0!2d-105.2372!3d20.6534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDM5JzEyLjIiTiAxMDXCsDE0JzEzLjkiVw!5e0!3m2!1ses!2smx!4v1683000000000!5m2!1ses!2smx",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.4!2d-105.2286648!3d20.6370772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8421454e08759ccd%3A0x8ebaa9f70f42f09c!2sMadeira%20Medical%20Group%20-%20Consultorios%20m%C3%A9dicos!5e0!3m2!1ses!2smx!4v1714950000000!5m2!1ses!2smx",
 };
 
 export const NAV = {

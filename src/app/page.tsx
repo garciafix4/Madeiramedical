@@ -177,9 +177,11 @@ export default function Home() {
                   <div className="rounded-2xl overflow-hidden shadow-2xl h-80 lg:h-96 bg-gray-100">
                     <iframe
                       title="Ubicación Madeira Medical Group"
-                      src={`https://maps.google.com/maps?q=${encodeURIComponent(SITE.address)}&output=embed`}
+                      src={SITE.mapsEmbed}
                       className="w-full h-full border-0"
                       loading="lazy"
+                      allowFullScreen
+                      referrerPolicy="no-referrer-when-downgrade"
                     />
                   </div>
                 </AnimatedSection>

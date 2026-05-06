@@ -128,7 +128,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
             </div>
           </section>
 
-          {/* ── AGENDA CTA ─────────────────────────────────────────── */}
+          {/* ── PATIENT CTA ────────────────────────────────────────── */}
           <section id="agenda" style={{ backgroundColor: "#046b9f" }} className="py-12 px-4">
             <AnimatedSection>
               <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-white">
@@ -136,8 +136,8 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
                   <h2 className="text-2xl font-bold">{d.agenda.headline}</h2>
                   <p className="text-white/80 mt-1 max-w-lg">{d.agenda.body}</p>
                 </div>
-                <a href={d.agenda.cta.href} target="_blank" rel="noopener noreferrer" className="shrink-0 inline-flex items-center px-7 py-3 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-xl" style={{ backgroundColor: "rgba(255,255,255,0.95)", color: "#023047", boxShadow: "0 4px 15px rgba(0,0,0,0.2)" }}>
-                  {d.agenda.cta.label}
+                <a href={d.agenda.cta.href} target="_blank" rel="noopener noreferrer" className="shrink-0 inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold transition-all hover:scale-105 hover:shadow-xl" style={{ backgroundColor: "rgba(255,255,255,0.95)", color: "#023047", boxShadow: "0 4px 15px rgba(0,0,0,0.2)" }}>
+                  💬 {d.agenda.cta.label}
                 </a>
               </div>
             </AnimatedSection>
@@ -182,40 +182,6 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
                   </div>
                 </AnimatedSection>
               </div>
-            </div>
-          </section>
-
-          {/* ── RENTAL ─────────────────────────────────────────────── */}
-          <section id="renta" className="py-24 px-4" style={{ backgroundColor: "#f0f9ff" }}>
-            <div className="max-w-7xl mx-auto">
-              <AnimatedSection className="text-center mb-14">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4" style={{ backgroundColor: "#023047", color: "#fff" }}>
-                  {d.rental.badge}
-                </span>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#023047" }}>{d.rental.headline}</h2>
-                <p className="text-gray-600 max-w-xl mx-auto text-lg">{d.rental.body}</p>
-              </AnimatedSection>
-
-              <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                {d.rental.features.map((feature) => (
-                  <StaggerItem key={feature.title}>
-                    <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
-                      <div className="text-3xl mb-3">{feature.icon}</div>
-                      <h3 className="font-bold text-lg mb-2" style={{ color: "#023047" }}>{feature.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed">{feature.description}</p>
-                    </div>
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
-
-              <AnimatedSection className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href={d.rental.cta1.href} className="inline-flex items-center justify-center px-8 py-3 rounded-xl font-semibold text-base border-2 transition-all hover:scale-105" style={{ borderColor: "#023047", color: "#023047" }}>
-                  {d.rental.cta1.label}
-                </a>
-                <a href={d.rental.cta2.href} target="_blank" rel="noopener noreferrer" className="btn-gradient inline-flex items-center justify-center px-8 py-3 rounded-xl font-semibold text-base text-white">
-                  {d.rental.cta2.label}
-                </a>
-              </AnimatedSection>
             </div>
           </section>
 

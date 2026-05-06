@@ -84,6 +84,8 @@ export function Navbar({ d }: Props) {
           </a>
           <a
             href={resolveHref(d.nav.ctaHref)}
+            target={d.nav.ctaHref.startsWith("http") ? "_blank" : undefined}
+            rel={d.nav.ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
             className="btn-gradient inline-flex items-center px-4 py-2 rounded-md text-sm font-semibold text-white"
           >
             {d.nav.ctaLabel}
@@ -134,6 +136,8 @@ export function Navbar({ d }: Props) {
               </a>
               <a
                 href={resolveHref(d.nav.ctaHref)}
+                target={d.nav.ctaHref.startsWith("http") ? "_blank" : undefined}
+                rel={d.nav.ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="btn-gradient flex-1 text-center py-2 rounded-lg font-semibold text-white text-sm"
                 onClick={() => setMenuOpen(false)}
               >

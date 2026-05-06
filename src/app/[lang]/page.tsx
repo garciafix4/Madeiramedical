@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getDict, SPECIALTIES } from "@/lib/i18n";
-import { SITE } from "@/lib/content";
+import { SITE, DOCTORS_LIST } from "@/lib/content";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Navbar } from "@/components/Navbar";
@@ -229,12 +229,61 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
                 <p className="text-gray-500 max-w-xl mx-auto">{d.doctors.body}</p>
               </AnimatedSection>
 
-              <StaggerContainer id="especialidades" className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
+              {/* Specialty tags */}
+              <StaggerContainer id="especialidades" className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto mb-16">
                 {specialties.map((spec) => (
                   <StaggerItem key={spec}>
                     <span className="px-4 py-2 rounded-full text-sm font-medium border cursor-default transition-all hover:scale-105 hover:shadow-md" style={{ borderColor: "#046b9f", color: "#046b9f", backgroundColor: "#f0f9ff" }}>
                       {spec}
                     </span>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+
+              {/* Doctor cards grid */}
+              <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {DOCTORS_LIST.map((doctor) => (
+                  <StaggerItem key={doctor.slug}>
+                    <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-gray-100 h-full flex flex-col">
+                      {/* Photo */}
+                      <div className="relative overflow-hidden" style={{ aspectRatio: "1/1" }}>
+                        <Image
+                          src={doctor.photo}
+                          alt={doctor.name}
+                          fill
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      </div>
+                      {/* Info */}
+                      <div className="p-5 flex flex-col flex-1">
+                        <h3 className="font-bold text-base leading-tight mb-1" style={{ color: "#023047" }}>{doctor.name}</h3>
+                        <p className="text-xs font-semibold mb-3" style={{ color: "#046b9f" }}>{doctor.specialty}</p>
+                        {doctor.services.length > 0 && (
+                          <ul className="text-xs text-gray-500 space-y-1 mb-4 flex-1">
+                            {doctor.services.slice(0, 4).map((s) => (
+                              <li key={s} className="flex items-start gap-1.5">
+                                <span className="mt-0.5 shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#046b9f", marginTop: "5px" }} />
+                                {s}
+                              </li>
+                            ))}
+                            {doctor.services.length > 4 && (
+                              <li className="text-gray-400 italic">+{doctor.services.length - 4} más…</li>
+                            )}
+                          </ul>
+                        )}
+                        <a
+                          href={`https://wa.me/52${doctor.phone.replace(/[\s\-]/g, "")}?text=Hola%2C%20quiero%20agendar%20una%20cita%20con%20${encodeURIComponent(doctor.name)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-auto inline-flex items-center justify-center gap-2 w-full py-2 rounded-xl text-xs font-semibold transition-all hover:opacity-90"
+                          style={{ backgroundColor: "#023047", color: "#fff" }}
+                        >
+                          📞 {doctor.phone}
+                        </a>
+                      </div>
+                    </div>
                   </StaggerItem>
                 ))}
               </StaggerContainer>

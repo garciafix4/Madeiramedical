@@ -181,3 +181,8 @@
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
   padding-bottom: calc(4vw + 4rem);
 }
+
+.specialty-tag:hover {
+  background-color: #046b9f !important;
+  color: #fff !important;
+}

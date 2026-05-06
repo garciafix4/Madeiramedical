@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getDict, SPECIALTIES } from "@/lib/i18n";
-import { SITE, DOCTORS_LIST } from "@/lib/content";
+import { SITE, DOCTORS_LIST, SPECIALTIES_MAP } from "@/lib/content";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Navbar } from "@/components/Navbar";
@@ -230,13 +230,17 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
                 <p className="text-gray-500 max-w-xl mx-auto">{d.doctors.body}</p>
               </AnimatedSection>
 
-              {/* Specialty tags */}
+              {/* Specialty tags — cada uno linkea a su página de especialidad */}
               <StaggerContainer id="especialidades" className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto mb-16">
-                {specialties.map((spec) => (
-                  <StaggerItem key={spec}>
-                    <span className="px-4 py-2 rounded-full text-sm font-medium border cursor-default transition-all hover:scale-105 hover:shadow-md" style={{ borderColor: "#046b9f", color: "#046b9f", backgroundColor: "#f0f9ff" }}>
-                      {spec}
-                    </span>
+                {SPECIALTIES_MAP.map((spec) => (
+                  <StaggerItem key={spec.slug}>
+                    <Link
+                      href={`/${lang}/especialidades/${spec.slug}`}
+                      className="px-4 py-2 rounded-full text-sm font-medium border transition-all hover:scale-105 hover:shadow-md specialty-tag"
+                      style={{ borderColor: "#046b9f", color: "#046b9f", backgroundColor: "#f0f9ff" }}
+                    >
+                      {lang === "en" ? spec.nameEn : spec.name}
+                    </Link>
                   </StaggerItem>
                 ))}
               </StaggerContainer>

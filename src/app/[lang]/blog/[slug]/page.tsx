@@ -39,12 +39,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: post.lang === "en" ? "en_US" : "es_MX",
       siteName: SITE.name,
       publishedTime: post.publishedAt,
-      images: [{ url: image, width: 800, height: 800, alt: post.title }],
+      images: [{ url: image, width: 1280, height: 720, alt: post.title }],
     },
     twitter: { card: "summary_large_image", title: post.title, description: post.description, images: [image] },
-    alternates: {
-      canonical: url,
-    },
+    alternates: { canonical: url },
     robots: { index: true, follow: true },
   };
 }
@@ -60,11 +58,15 @@ export default async function BlogPostPage({ params }: Props) {
   const doctor = post.doctorSlug ? DOCTORS_LIST.find((d) => d.slug === post.doctorSlug) : null;
   const specialty = post.specialtySlug ? SPECIALTIES_MAP.find((s) => s.slug === post.specialtySlug) : null;
 
+  // Related posts (same specialty or lang, exclude current)
+  const related = BLOG_POSTS.filter(
+    (p) => p.slug !== slug && p.lang === lang && (p.specialtySlug === post.specialtySlug || p.doctorSlug === post.doctorSlug)
+  ).slice(0, 3);
+
   const whatsappMsg = isEn
     ? `Hello, I read your article "${post.title}" and would like to book an appointment`
     : `Hola, leí el artículo "${post.title}" y me gustaría agendar una cita`;
 
-  // JSON-LD: Article + optional Physician authorship
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -74,11 +76,7 @@ export default async function BlogPostPage({ params }: Props) {
       datePublished: post.publishedAt,
       url: `https://madeiramedicalgroup.com/${lang}/blog/${slug}`,
       image: post.coverImage ? `https://madeiramedicalgroup.com${post.coverImage}` : undefined,
-      publisher: {
-        "@type": "MedicalOrganization",
-        name: SITE.name,
-        url: `https://madeiramedicalgroup.com/${lang}`,
-      },
+      publisher: { "@type": "MedicalOrganization", name: SITE.name, url: `https://madeiramedicalgroup.com/${lang}` },
       ...(doctor && {
         author: {
           "@type": "Physician",
@@ -93,7 +91,7 @@ export default async function BlogPostPage({ params }: Props) {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: SITE.name, item: `https://madeiramedicalgroup.com/${lang}` },
-        { "@type": "ListItem", position: 2, name: isEn ? "Blog" : "Blog", item: `https://madeiramedicalgroup.com/${lang}/blog` },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `https://madeiramedicalgroup.com/${lang}/blog` },
         { "@type": "ListItem", position: 3, name: post.title, item: `https://madeiramedicalgroup.com/${lang}/blog/${slug}` },
       ],
     },
@@ -109,98 +107,224 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* ── HERO ──────────────────────────────────────────── */}
         <div style={{ background: "linear-gradient(135deg, #012030 0%, #023047 60%, #046b9f 100%)" }} className="pt-20">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+
             {/* Breadcrumb */}
-            <nav className="text-white/40 text-xs mb-5 flex items-center gap-1.5 flex-wrap">
+            <nav className="text-white/40 text-xs mb-6 flex items-center gap-1.5 flex-wrap">
               <Link href={`/${lang}`} className="hover:text-white/70 transition-colors">{SITE.name}</Link>
               <span>/</span>
               <Link href={`/${lang}/blog`} className="hover:text-white/70 transition-colors">Blog</Link>
               <span>/</span>
-              <span className="text-white/60 truncate max-w-[200px]">{post.title}</span>
+              <span className="text-white/60 truncate max-w-[220px]">{post.title}</span>
             </nav>
 
             {specialty && (
               <Link
                 href={`/${lang}/especialidades/${specialty.slug}`}
-                className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 transition-all hover:opacity-80"
-                style={{ backgroundColor: "rgba(4,107,159,0.5)", color: "#fff", border: "1px solid rgba(255,255,255,0.15)" }}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-5 transition-all hover:opacity-80"
+                style={{ backgroundColor: "rgba(4,107,159,0.5)", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }}
               >
                 {isEn ? specialty.nameEn : specialty.name}
               </Link>
             )}
 
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
+            <h1 className="text-2xl md:text-4xl font-bold text-white leading-tight mb-5">
               {post.title}
             </h1>
 
-            <p className="text-white/60 text-sm">
-              {new Date(post.publishedAt).toLocaleDateString(isEn ? "en-US" : "es-MX", { year: "numeric", month: "long", day: "numeric" })}
-              {doctor && <> · <Link href={`/${lang}/medicos/${doctor.slug}`} className="text-white/70 hover:text-white transition-colors">{doctor.name}</Link></>}
+            <p className="text-white/60 text-sm mb-8 leading-relaxed max-w-2xl">
+              {post.description}
             </p>
+
+            {/* Author row */}
+            {doctor ? (
+              <div className="flex items-center gap-3">
+                <div className="relative w-11 h-11 rounded-full overflow-hidden ring-2 ring-white/20 shrink-0">
+                  <Image src={doctor.photo} alt={doctor.name} fill className="object-cover object-top" sizes="44px" />
+                </div>
+                <div>
+                  <p className="text-white text-sm font-semibold">{doctor.name}</p>
+                  <p className="text-white/50 text-xs">
+                    {doctor.specialty} · {new Date(post.publishedAt).toLocaleDateString(isEn ? "en-US" : "es-MX", { year: "numeric", month: "long", day: "numeric" })}
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <p className="text-white/50 text-xs">
+                {new Date(post.publishedAt).toLocaleDateString(isEn ? "en-US" : "es-MX", { year: "numeric", month: "long", day: "numeric" })}
+              </p>
+            )}
           </div>
 
-          {/* Cover image */}
+          {/* Cover image full-width */}
           {post.coverImage && (
-            <div className="max-w-3xl mx-auto px-4 sm:px-6 pb-0">
-              <div className="relative w-full rounded-t-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: "16/7" }}>
+            <div className="max-w-4xl mx-auto px-4 sm:px-6">
+              <div className="relative w-full rounded-t-3xl overflow-hidden shadow-2xl" style={{ aspectRatio: "16/7" }}>
                 <Image
                   src={post.coverImage}
                   alt={post.title}
                   fill
-                  className="object-cover object-top"
+                  className="object-cover"
                   priority
-                  sizes="(max-width: 768px) 100vw, 768px"
+                  sizes="(max-width: 768px) 100vw, 896px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
             </div>
           )}
 
-          <svg viewBox="0 0 1440 30" className="w-full block" style={{ display: "block" }}>
-            <path d="M0,15 C360,30 1080,0 1440,15 L1440,30 L0,30 Z" fill="white" />
+          <svg viewBox="0 0 1440 40" className="w-full block" style={{ display: "block", marginTop: post.coverImage ? 0 : undefined }}>
+            <path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" fill="white" />
           </svg>
         </div>
 
-        {/* ── CONTENT ───────────────────────────────────────── */}
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
-          <div
-            className="prose prose-lg max-w-none"
-            style={{
-              "--tw-prose-headings": "#023047",
-              "--tw-prose-body": "#374151",
-              "--tw-prose-links": "#046b9f",
-            } as React.CSSProperties}
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+        {/* ── LAYOUT: article + sidebar ─────────────────────── */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <div className="grid lg:grid-cols-[1fr_300px] gap-12">
+
+            {/* ── ARTICLE CONTENT ─────────────────────────── */}
+            <article>
+              <div
+                className="prose prose-lg max-w-none
+                  prose-headings:font-bold prose-headings:text-[#023047]
+                  prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+                  prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+                  prose-p:text-gray-600 prose-p:leading-relaxed
+                  prose-li:text-gray-600
+                  prose-a:text-[#046b9f] prose-a:no-underline hover:prose-a:underline
+                  prose-strong:text-[#023047]
+                  prose-table:text-sm
+                  prose-th:bg-[#f0f9ff] prose-th:text-[#023047] prose-th:font-semibold
+                  prose-details:border prose-details:border-gray-200 prose-details:rounded-xl prose-details:p-4
+                  prose-summary:cursor-pointer prose-summary:font-semibold prose-summary:text-[#023047]"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
+
+              {/* ── DOCTOR CARD (inline) ─────────────────────── */}
+              {doctor && (
+                <div className="mt-12 rounded-2xl p-6 flex items-start gap-5 border" style={{ backgroundColor: "#f0f9ff", borderColor: "#bae6fd" }}>
+                  <div className="relative w-20 h-20 rounded-2xl overflow-hidden shrink-0 ring-2 ring-white shadow">
+                    <Image src={doctor.photo} alt={doctor.name} fill className="object-cover object-top" sizes="80px" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: "#046b9f" }}>
+                      {isEn ? "Written by" : "Escrito por"}
+                    </p>
+                    <h3 className="font-bold text-base mb-0.5" style={{ color: "#023047" }}>{doctor.name}</h3>
+                    <p className="text-sm text-gray-500 mb-3">{doctor.specialty}</p>
+                    <Link
+                      href={`/${lang}/medicos/${doctor.slug}`}
+                      className="text-xs font-semibold hover:underline"
+                      style={{ color: "#046b9f" }}
+                    >
+                      {isEn ? "View full profile →" : "Ver perfil completo →"}
+                    </Link>
+                  </div>
+                </div>
+              )}
+
+              {/* ── RELATED POSTS ───────────────────────────── */}
+              {related.length > 0 && (
+                <div className="mt-14">
+                  <h3 className="text-lg font-bold mb-6" style={{ color: "#023047" }}>
+                    {isEn ? "Related Articles" : "Artículos relacionados"}
+                  </h3>
+                  <div className="grid sm:grid-cols-3 gap-4">
+                    {related.map((rel) => (
+                      <Link key={rel.slug} href={`/${lang}/blog/${rel.slug}`} className="group block rounded-xl overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+                        <div className="relative overflow-hidden bg-gray-100" style={{ aspectRatio: "16/9" }}>
+                          {rel.coverImage ? (
+                            <Image src={rel.coverImage} alt={rel.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="200px" />
+                          ) : (
+                            <div className="w-full h-full" style={{ background: "linear-gradient(135deg,#023047,#046b9f)" }} />
+                          )}
+                        </div>
+                        <div className="p-3">
+                          <p className="text-xs font-bold leading-snug group-hover:text-[#046b9f] transition-colors line-clamp-2" style={{ color: "#023047" }}>
+                            {rel.title}
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </article>
+
+            {/* ── SIDEBAR ─────────────────────────────────── */}
+            <aside className="hidden lg:block space-y-6">
+
+              {/* WhatsApp CTA */}
+              <div className="rounded-2xl p-6 text-white sticky top-24" style={{ background: "linear-gradient(135deg,#023047,#046b9f)" }}>
+                <p className="text-xs font-semibold uppercase tracking-widest mb-3 text-white/60">
+                  {isEn ? "Book an appointment" : "Agendar consulta"}
+                </p>
+                <p className="text-sm font-semibold mb-1">
+                  {isEn ? "Questions about this article?" : "¿Tienes dudas sobre este artículo?"}
+                </p>
+                <p className="text-xs text-white/60 mb-5">
+                  {isEn ? "Our specialists are ready to help you." : "Nuestros especialistas están listos para ayudarte."}
+                </p>
+                <a
+                  href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(whatsappMsg)}`}
+                  target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-sm transition-all hover:scale-105"
+                  style={{ backgroundColor: "#25D366", color: "#fff" }}
+                >
+                  💬 WhatsApp
+                </a>
+                <a
+                  href={`tel:${SITE.phone}`}
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-medium mt-2 border border-white/20 hover:bg-white/10 transition-colors"
+                  style={{ color: "#fff" }}
+                >
+                  📞 {SITE.phone}
+                </a>
+              </div>
+
+              {/* Doctor card (sidebar) */}
+              {doctor && (
+                <div className="rounded-2xl p-5 border" style={{ backgroundColor: "#f8fbff", borderColor: "#e0f2fe" }}>
+                  <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#046b9f" }}>
+                    {isEn ? "About the author" : "Sobre el autor"}
+                  </p>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="relative w-14 h-14 rounded-xl overflow-hidden shrink-0">
+                      <Image src={doctor.photo} alt={doctor.name} fill className="object-cover object-top" sizes="56px" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-sm" style={{ color: "#023047" }}>{doctor.name}</p>
+                      <p className="text-xs text-gray-500">{doctor.specialty}</p>
+                    </div>
+                  </div>
+                  <Link href={`/${lang}/medicos/${doctor.slug}`} className="block text-center text-xs font-semibold py-2 rounded-lg hover:opacity-80 transition-opacity" style={{ backgroundColor: "#e0f2fe", color: "#023047" }}>
+                    {isEn ? "View profile" : "Ver perfil"}
+                  </Link>
+                </div>
+              )}
+
+              {/* Specialty link */}
+              {specialty && (
+                <div className="rounded-2xl p-5 border border-gray-100" style={{ backgroundColor: "#f8fbff" }}>
+                  <p className="text-xs font-semibold uppercase tracking-widest mb-2 text-gray-400">
+                    {isEn ? "Specialty" : "Especialidad"}
+                  </p>
+                  <Link
+                    href={`/${lang}/especialidades/${specialty.slug}`}
+                    className="flex items-center justify-between text-sm font-semibold hover:underline"
+                    style={{ color: "#046b9f" }}
+                  >
+                    <span>{isEn ? specialty.nameEn : specialty.name}</span>
+                    <span>→</span>
+                  </Link>
+                </div>
+              )}
+            </aside>
+          </div>
         </div>
 
-        {/* ── DOCTOR CARD ───────────────────────────────────── */}
-        {doctor && (
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 pb-12">
-            <div className="rounded-2xl p-6 flex items-start gap-5 border" style={{ backgroundColor: "#f0f9ff", borderColor: "#bae6fd" }}>
-              <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0">
-                <Image src={doctor.photo} alt={doctor.name} fill className="object-cover object-top" sizes="80px" />
-              </div>
-              <div className="flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: "#046b9f" }}>
-                  {isEn ? "About the author" : "Sobre el autor"}
-                </p>
-                <h3 className="font-bold text-base mb-0.5" style={{ color: "#023047" }}>{doctor.name}</h3>
-                <p className="text-sm text-gray-500 mb-3">{doctor.specialty}</p>
-                <Link
-                  href={`/${lang}/medicos/${doctor.slug}`}
-                  className="text-xs font-semibold hover:underline"
-                  style={{ color: "#046b9f" }}
-                >
-                  {isEn ? "View full profile →" : "Ver perfil completo →"}
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* ── CTA ───────────────────────────────────────────── */}
-        <section className="py-16 px-4" style={{ backgroundColor: "#023047" }}>
+        {/* ── BOTTOM CTA ────────────────────────────────────── */}
+        <section className="py-16 px-4" style={{ background: "linear-gradient(135deg,#012030,#023047)" }}>
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl font-bold text-white mb-3">
               {isEn ? "Have questions? Book a consultation" : "¿Tienes dudas? Agenda una consulta"}
@@ -213,8 +337,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(whatsappMsg)}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-semibold transition-all hover:scale-105"
                 style={{ backgroundColor: "#25D366", color: "#fff" }}
               >

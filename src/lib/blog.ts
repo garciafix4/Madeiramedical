@@ -34,7 +34,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "bótox Puerto Vallarta",
       "medicina estética Puerto Vallarta",
     ],
-    coverImage: "/doctors/dra_angela_goretti_robles_ibarra.jpg",
+    coverImage: "/blog/armonizacion-facial.jpg",
     content: `
 <h2>¿Qué es la armonización facial?</h2>
 <p>La armonización facial es un conjunto de procedimientos médico-estéticos <strong>no quirúrgicos</strong> que buscan equilibrar y proporcionar las facciones del rostro. A diferencia de una cirugía plástica, no requiere bisturí ni anestesia general: se realiza en consultorio, con resultados visibles desde la primera sesión y sin tiempo de recuperación significativo.</p>
@@ -123,7 +123,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "gynecologist Versalles Puerto Vallarta",
       "prenatal care Puerto Vallarta",
     ],
-    coverImage: "/doctors/dr_mario_alejandro_rendon_acosta.jpg",
+    coverImage: "/blog/english-speaking-gynecologist.jpg",
     content: `
 <h2>Gynecological Care in Puerto Vallarta: Better Than You Think</h2>
 <p>One of the most common questions in expat Facebook groups and forums is: <em>"Can anyone recommend a good English-speaking gynecologist in Puerto Vallarta?"</em> The answer is yes — and the quality of care may surprise you.</p>
@@ -222,7 +222,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "retiring Puerto Vallarta healthcare",
       "English speaking doctor elderly Puerto Vallarta",
     ],
-    coverImage: "/doctors/dra_adriana_turrubiates_flores.jpg",
+    coverImage: "/blog/healthcare-retirees.jpg",
     content: `
 <h2>Puerto Vallarta Has One of Mexico's Largest Retiree Communities — And the Healthcare to Match</h2>
 <p>With over 10,000 American and Canadian retirees calling Puerto Vallarta home — and thousands more spending winters here — the city has developed a medical infrastructure that rivals many mid-size US cities. Yet one of the most underserved areas has been <strong>geriatric care</strong>: specialized medicine focused on the unique health needs of adults over 65.</p>
@@ -323,7 +323,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_jessica_nitardy",
     specialtySlug: "implantes-dentales-puerto-vallarta",
     keywords: ["dental implants Puerto Vallarta cost","dental implants Puerto Vallarta 2026","dental implants Mexico price","affordable dental implants Puerto Vallarta"],
-    coverImage: "/doctors/dra_jessica_nitardy.jpg",
+    coverImage: "/blog/dental-implants-cost.jpg",
     content: `
 <h2>Why Patients From the US and Canada Choose Puerto Vallarta for Dental Implants</h2>
 <p>A single dental implant in the United States costs between <strong>$3,900 and $5,500 USD</strong> — and that's just one tooth. In Puerto Vallarta, the same procedure with a top-tier implant brand runs <strong>$900–$1,800 USD</strong>. That's a savings of 60–75%, with no compromise on materials or technique.</p>
@@ -383,7 +383,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_karla_marcela_figueroa_aguilar",
     specialtySlug: "implantes-dentales-puerto-vallarta",
     keywords: ["All-on-4 Puerto Vallarta","All-on-4 dental implants Mexico","full mouth implants Puerto Vallarta","teeth in a day Puerto Vallarta"],
-    coverImage: "/doctors/dra_karla_marcela_figueroa_aguilar.jpg",
+    coverImage: "/blog/all-on-4-implants.jpg",
     content: `
 <h2>What Is All-on-4 and Who Is It For?</h2>
 <p>All-on-4 is a full-arch dental restoration technique that replaces all teeth on an upper or lower jaw using just four strategically placed implants. It's designed for patients who have lost most or all of their teeth — or are about to — and want a permanent, fixed solution instead of removable dentures.</p>
@@ -435,7 +435,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_sarai_bethzabee_rivera_ramos",
     specialtySlug: "implantes-dentales-puerto-vallarta",
     keywords: ["implantes dentales Puerto Vallarta precio","implantes dentales Puerto Vallarta 2026","implante dental costo Puerto Vallarta","implante dental Versalles Puerto Vallarta"],
-    coverImage: "/doctors/dra_sarai_bethzabee_rivera_ramos.jpg",
+    coverImage: "/blog/implantes-dentales-precio.jpg",
     content: `
 <h2>¿Cuánto cuesta un implante dental en Puerto Vallarta?</h2>
 <p>El costo de un implante dental en Puerto Vallarta varía según la complejidad del caso, la marca del implante y si se requieren procedimientos adicionales como injertos óseos. En términos generales, un implante completo (fijación + pilar + corona) cuesta entre <strong>$18,000 y $35,000 MXN</strong> ($900–$1,800 USD), lo que representa un ahorro de hasta 60% frente a los precios en la Ciudad de México o Guadalajara.</p>
@@ -483,7 +483,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_karla_marcela_figueroa_aguilar",
     specialtySlug: "implantes-dentales-puerto-vallarta",
     keywords: ["smile design Puerto Vallarta","veneers Puerto Vallarta","cosmetic dentistry Puerto Vallarta","dental veneers Mexico cost"],
-    coverImage: "/doctors/dra_karla_marcela_figueroa_aguilar.jpg",
+    coverImage: "/blog/smile-design.jpg",
     content: `
 <h2>What Is Smile Design?</h2>
 <p>Smile design (or <em>diseño de sonrisa</em>) is a comprehensive cosmetic dentistry process that improves the appearance of your smile through a combination of techniques: porcelain veneers, composite veneers, whitening, gum contouring, and sometimes crowns or orthodontics. The goal is a harmonious, natural-looking smile that fits your facial proportions and personal aesthetic.</p>
@@ -535,7 +535,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_mar_palacios",
     specialtySlug: "ortodoncista-invisalign-puerto-vallarta",
     keywords: ["Invisalign Puerto Vallarta","Invisalign Puerto Vallarta price","start Invisalign Mexico continue at home","Invisalign expat Puerto Vallarta"],
-    coverImage: "/doctors/dra_mar_palacios.jpg",
+    coverImage: "/blog/invisalign-process.jpg",
     content: `
 <h2>Invisalign in Puerto Vallarta: The Expat and Visitor's Complete Guide</h2>
 <p>One of the most common questions in Puerto Vallarta expat groups is: <em>"Can I start Invisalign here and continue treatment back in the US or Canada?"</em> The short answer is yes — and it's more practical than you might think.</p>
@@ -589,7 +589,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_mar_palacios",
     specialtySlug: "ortodoncista-invisalign-puerto-vallarta",
     keywords: ["Invisalign vs brackets Puerto Vallarta","ortodoncista Puerto Vallarta","Invisalign precio Puerto Vallarta","brackets Puerto Vallarta adultos"],
-    coverImage: "/doctors/dra_mar_palacios.jpg",
+    coverImage: "/blog/invisalign-vs-brackets.jpg",
     content: `
 <h2>La pregunta más común en ortodoncia: ¿Invisalign o brackets?</h2>
 <p>Si estás considerando alinear tus dientes en Puerto Vallarta, probablemente ya te has preguntado qué opción es mejor para ti. La respuesta depende de tu caso clínico, tu presupuesto y tu estilo de vida — no hay una respuesta universal.</p>
@@ -646,7 +646,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_mar_palacios",
     specialtySlug: "ortodoncista-invisalign-puerto-vallarta",
     keywords: ["ortodoncista niños Puerto Vallarta","ortopedia maxilofacial niños Puerto Vallarta","primera visita ortodoncista edad","ortodoncia infantil Puerto Vallarta"],
-    coverImage: "/doctors/dra_mar_palacios.jpg",
+    coverImage: "/blog/orthodontist-children.jpg",
     content: `
 <h2>La primera cita con el ortodoncista: más temprano de lo que piensas</h2>
 <p>Muchos padres esperan a que todos los dientes permanentes hayan salido para llevar a su hijo al ortodoncista — pero ese momento ya puede ser tarde para aprovechar el crecimiento del niño. La <strong>Asociación Americana de Ortodoncia (AAO)</strong> y la <strong>Asociación Mexicana de Ortodoncia</strong> recomiendan la primera evaluación ortodóntica a los <strong>6–7 años</strong>.</p>
@@ -698,7 +698,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dr_marco_antonio_rodriguez_perez",
     specialtySlug: "armonizacion-facial-puerto-vallarta",
     keywords: ["facial harmonization Puerto Vallarta","facial harmonization Mexico","botox fillers Puerto Vallarta expat","aesthetic medicine Puerto Vallarta"],
-    coverImage: "/doctors/dr_marco_antonio_rodriguez_perez.jpg",
+    coverImage: "/blog/facial-harmonization-expat.jpg",
     content: `
 <h2>Facial Harmonization: The Treatment Expats Are Discovering in Puerto Vallarta</h2>
 <p>Facial harmonization is a term that's deeply embedded in Latin American aesthetic medicine but still relatively unknown in the US and Canada. It refers to a customized combination of non-surgical procedures — dermal fillers, botulinum toxin, collagen biostimulators, and threads — designed to bring balance and proportion to facial features without surgery.</p>
@@ -754,7 +754,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_esli_perez_castro",
     specialtySlug: "medicina-estetica-puerto-vallarta",
     keywords: ["botox Puerto Vallarta precio","bótox Puerto Vallarta médico certificado","toxina botulínica Puerto Vallarta","botox Versalles Puerto Vallarta"],
-    coverImage: "/doctors/dra_esli_perez_castro.jpg",
+    coverImage: "/blog/botox-precio.jpg",
     content: `
 <h2>Bótox en Puerto Vallarta: lo que nadie te cuenta</h2>
 <p>En Puerto Vallarta hay desde spas de playa que ofrecen bótox a $500 pesos hasta consultorios médicos especializados con marcas certificadas internacionalmente. La diferencia de precio es real — pero también lo es la diferencia en seguridad y resultado.</p>
@@ -803,7 +803,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dr_edgar_martin_hernandez_jimenez",
     specialtySlug: "medicina-estetica-puerto-vallarta",
     keywords: ["botox fillers Puerto Vallarta","botox Puerto Vallarta expat","dermal fillers Puerto Vallarta","anti-aging treatment Puerto Vallarta"],
-    coverImage: "/doctors/dr_edgar_martin_hernandez_jimenez.jpg",
+    coverImage: "/blog/botox-fillers-expats.jpg",
     content: `
 <h2>Why Puerto Vallarta's Expat Community Trusts Local Aesthetic Medicine</h2>
 <p>Puerto Vallarta has one of Mexico's largest expat communities — an estimated 10,000+ Americans and Canadians living full or part-time in the area. Many have discovered that high-quality aesthetic medicine is not only available locally, but significantly more affordable than back home.</p>
@@ -858,7 +858,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_esli_perez_castro",
     specialtySlug: "medicina-regenerativa-puerto-vallarta",
     keywords: ["exosomas terapia Puerto Vallarta","medicina regenerativa Puerto Vallarta","terapia exosomas precio Puerto Vallarta","exosomas qué es"],
-    coverImage: "/doctors/dra_esli_perez_castro.jpg",
+    coverImage: "/blog/exosomas-terapia.jpg",
     content: `
 <h2>¿Qué son los exosomas y por qué se habla tanto de ellos?</h2>
 <p>Los exosomas son pequeñas vesículas extracelulares (bolsitas nanométricas) que las células del cuerpo usan para comunicarse entre sí, transportando proteínas, ARN y factores de crecimiento. En medicina regenerativa, los exosomas derivados de células madre mesenquimales se utilizan de manera terapéutica para estimular la reparación tisular, reducir la inflamación y promover la regeneración celular.</p>
@@ -901,7 +901,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_esli_perez_castro",
     specialtySlug: "medicina-regenerativa-puerto-vallarta",
     keywords: ["bioidentical hormone therapy Puerto Vallarta","BHRT Puerto Vallarta","hormone replacement therapy Mexico expat","anti-aging hormone therapy Puerto Vallarta"],
-    coverImage: "/doctors/dra_esli_perez_castro.jpg",
+    coverImage: "/blog/bioidentical-hrt.jpg",
     content: `
 <h2>Why Expats in Puerto Vallarta Are Turning to Bioidentical HRT</h2>
 <p>Among the thousands of Americans and Canadians who retire or live part-time in Puerto Vallarta, bioidentical hormone replacement therapy (BHRT) has become one of the most sought-after medical services. The reasons are practical: BHRT is significantly more affordable than in the US and Canada, and the growing medical community in Versalles includes physicians with formal training in anti-aging and regenerative medicine.</p>
@@ -961,7 +961,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_devy_michelle_ojeda_castellon",
     specialtySlug: "ginecologo-puerto-vallarta",
     keywords: ["ultrasonido 3D 4D Puerto Vallarta","ultrasonido embarazo Puerto Vallarta","ultrasonido 4D precio Puerto Vallarta","ginecóloga embarazo Puerto Vallarta"],
-    coverImage: "/doctors/dra_devy_michelle_ojeda_castellon.jpg",
+    coverImage: "/blog/ultrasonido-3d-4d.jpg",
     content: `
 <h2>Ultrasonido 3D y 4D: más que una foto, una ventana al desarrollo de tu bebé</h2>
 <p>El ultrasonido obstétrico ha evolucionado enormemente. El ultrasonido 2D tradicional sigue siendo la herramienta diagnóstica principal, pero el <strong>ultrasonido 3D</strong> (imágenes tridimensionales estáticas) y el <strong>4D</strong> (imágenes tridimensionales en movimiento en tiempo real) ofrecen una experiencia completamente diferente: puedes ver el rostro de tu bebé, sus expresiones, cómo mueve las manos y responde a estímulos.</p>
@@ -1009,7 +1009,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dr_mario_alejandro_rendon_acosta",
     specialtySlug: "ginecologo-puerto-vallarta",
     keywords: ["menopause treatment Puerto Vallarta","HRT Puerto Vallarta expat","perimenopause doctor Puerto Vallarta","menopause specialist Puerto Vallarta English"],
-    coverImage: "/doctors/dr_mario_alejandro_rendon_acosta.jpg",
+    coverImage: "/blog/menopause-treatment.jpg",
     content: `
 <h2>Navigating Menopause as an Expat in Puerto Vallarta</h2>
 <p>For the thousands of women over 45 who live in or visit Puerto Vallarta, managing perimenopause and menopause locally is not only possible — it's often a better experience than dealing with overwhelmed healthcare systems back home.</p>
@@ -1057,7 +1057,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_lidia_ivonne_moreno_rodriguez",
     specialtySlug: "endocrinologo-puerto-vallarta",
     keywords: ["hipotiroidismo Puerto Vallarta","endocrinólogo tiroides Puerto Vallarta","tiroides especialista Puerto Vallarta","endocrinólogo Puerto Vallarta diabetes"],
-    coverImage: "/doctors/dra_lidia_ivonne_moreno_rodriguez.jpg",
+    coverImage: "/blog/hipotiroidismo.jpg",
     content: `
 <h2>El problema de tiroides más común: el hipotiroidismo</h2>
 <p>El hipotiroidismo — cuando la glándula tiroides produce menos hormona de la necesaria — es una de las enfermedades endocrinas más frecuentes en México, especialmente en mujeres. Se estima que afecta al <strong>10–15% de las mujeres mayores de 35 años</strong>, aunque muchas no están diagnosticadas porque los síntomas son inespecíficos y se atribuyen al estrés o al envejecimiento.</p>
@@ -1111,7 +1111,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_lidia_ivonne_moreno_rodriguez",
     specialtySlug: "endocrinologo-puerto-vallarta",
     keywords: ["endocrinologist Puerto Vallarta","diabetes doctor Puerto Vallarta expat","thyroid specialist Puerto Vallarta English","chronic disease management Puerto Vallarta"],
-    coverImage: "/doctors/dra_lidia_ivonne_moreno_rodriguez.jpg",
+    coverImage: "/blog/diabetes-expat.jpg",
     content: `
 <h2>Living With Chronic Conditions in Puerto Vallarta: What Expats Need to Know</h2>
 <p>Thousands of Americans and Canadians who live in or visit Puerto Vallarta manage chronic endocrine conditions — diabetes, hypothyroidism, metabolic syndrome, adrenal disorders. The good news: Puerto Vallarta's medical community, particularly in the Versalles district, is well-equipped to provide ongoing specialist care at a fraction of US costs.</p>
@@ -1159,7 +1159,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_fernanda_sanchez",
     specialtySlug: "endocrinologo-puerto-vallarta",
     keywords: ["endocrinóloga pediátrica Puerto Vallarta","diabetes infantil Puerto Vallarta","problemas crecimiento niños Puerto Vallarta","endocrinólogo niños Puerto Vallarta"],
-    coverImage: "/doctors/dra_fernanda_sanchez.jpg",
+    coverImage: "/blog/endocrinologia-pediatrica.jpg",
     content: `
 <h2>¿Qué trata un endocrinólogo pediatra?</h2>
 <p>La endocrinología pediátrica es la especialidad médica que se ocupa de los trastornos hormonales en niños y adolescentes — desde problemas de crecimiento y pubertad precoz hasta diabetes tipo 1 y obesidad infantil con componente metabólico.</p>
@@ -1211,7 +1211,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_adriana_turrubiates_flores",
     specialtySlug: "geriatra-puerto-vallarta",
     keywords: ["geriatra Puerto Vallarta","atención adulto mayor Puerto Vallarta","Alzheimer demencia especialista Puerto Vallarta","médico adultos mayores Puerto Vallarta"],
-    coverImage: "/doctors/dra_adriana_turrubiates_flores.jpg",
+    coverImage: "/blog/geriatra-adulto-mayor.jpg",
     content: `
 <h2>El geriatra: el especialista del envejecimiento que muchas familias desconocen</h2>
 <p>Muchas familias en Puerto Vallarta saben que existe el internista, el cardiólogo o el neurólogo — pero desconocen al <strong>geriatra</strong>: el especialista en el cuidado integral del adulto mayor. La diferencia es fundamental: mientras el médico general o internista trata enfermedades específicas, el geriatra evalúa al paciente anciano de manera global, considerando sus condiciones múltiples, sus medicamentos, su función cognitiva y su calidad de vida como un todo.</p>
@@ -1258,7 +1258,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_aylin_santana_ortiz",
     specialtySlug: "nutriologo-puerto-vallarta",
     keywords: ["nutriólogo Puerto Vallarta","nutriólogo Puerto Vallarta precio","InBody análisis composición corporal Puerto Vallarta","nutricionista Puerto Vallarta pérdida de peso"],
-    coverImage: "/doctors/dra_aylin_santana_ortiz.jpg",
+    coverImage: "/blog/nutriologo-consulta.jpg",
     content: `
 <h2>Tu primera consulta con la nutrióloga: sin dietas de hambre, sin milagros</h2>
 <p>Si nunca has ido al nutriólogo, es probable que tengas ideas preconcebidas: que te van a dar una dieta restrictiva, que tendrás que dejar de comer todo lo que te gusta o que es solo para perder peso. La realidad es diferente — la nutriología clínica es una especialidad médica que adapta la alimentación a tu biología, tu estilo de vida y tus objetivos específicos.</p>
@@ -1306,7 +1306,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_aylin_santana_ortiz",
     specialtySlug: "nutriologo-puerto-vallarta",
     keywords: ["nutritionist Puerto Vallarta","dietitian Puerto Vallarta expat","nutrition consultation Puerto Vallarta","healthy eating Puerto Vallarta"],
-    coverImage: "/doctors/dra_aylin_santana_ortiz.jpg",
+    coverImage: "/blog/nutrition-expats.jpg",
     content: `
 <h2>Nutrition Care in Puerto Vallarta: More Than You'd Expect</h2>
 <p>Puerto Vallarta attracts health-conscious visitors and expats who want to maintain or improve their wellbeing while enjoying life in a beach destination. Clinical nutrition services in the Versalles medical district are sophisticated, affordable, and available without the waiting lists common in the US and Canada.</p>
@@ -1359,7 +1359,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_sindy_adriana_castillo_vera",
     specialtySlug: "psicologo-puerto-vallarta",
     keywords: ["therapist Puerto Vallarta English","psychologist Puerto Vallarta expat","mental health Puerto Vallarta English speaking","therapy Puerto Vallarta"],
-    coverImage: "/doctors/dra_sindy_adriana_castillo_vera.jpg",
+    coverImage: "/blog/therapist-english.jpg",
     content: `
 <h2>Mental Health Support in Puerto Vallarta: Better Access Than You Think</h2>
 <p>Finding a therapist in English is one of the most frequently asked questions in Puerto Vallarta's expat community. The demand is real — relocation stress, relationship challenges, grief, anxiety, and depression don't pause because you moved to paradise. The good news: quality mental health care in English is available in Puerto Vallarta.</p>
@@ -1412,7 +1412,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "bios_lab",
     specialtySlug: "laboratorio-clinico-puerto-vallarta",
     keywords: ["blood test Puerto Vallarta","lab work Puerto Vallarta expat","clinical laboratory Versalles Puerto Vallarta","annual checkup blood work Puerto Vallarta"],
-    coverImage: "/doctors/bios_lab.jpg",
+    coverImage: "/blog/blood-tests.jpg",
     content: `
 <h2>Lab Work in Puerto Vallarta: Affordable, Fast, and No Appointment Needed</h2>
 <p>One of the practical advantages of Puerto Vallarta's medical infrastructure that surprises expats and visitors: clinical laboratory services are fast, affordable, and widely available. <strong>BIOS LAB</strong>, the clinical laboratory at <strong>Madeira Medical Group</strong> in Versalles, offers a comprehensive menu of tests with results typically available same-day or within 24 hours.</p>
@@ -1473,7 +1473,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_daniela_anahi_ciambelli_romero",
     specialtySlug: "cirugia-plastica-puerto-vallarta",
     keywords: ["tummy tuck Puerto Vallarta","liposuction Puerto Vallarta","plastic surgery Puerto Vallarta cost","abdominoplasty Puerto Vallarta"],
-    coverImage: "/doctors/dra_daniela_anahi_ciambelli_romero.jpg",
+    coverImage: "/blog/tummy-tuck-lipo.jpg",
     content: `
 <h2>Plastic Surgery in Puerto Vallarta: What Medical Tourists Are Discovering</h2>
 <p>Puerto Vallarta has quietly become one of Mexico's most active destinations for plastic surgery tourism. Board-certified surgeons trained at top Mexican institutions (UNAM, Universidad de Guadalajara) offer procedures at 40–60% of US prices — with recovery in a world-class beach city.</p>
@@ -1528,7 +1528,7 @@ export const BLOG_POSTS: BlogPost[] = [
     doctorSlug: "dra_daniela_anahi_ciambelli_romero",
     specialtySlug: "cirugia-plastica-puerto-vallarta",
     keywords: ["bichectomía Puerto Vallarta","bichectomía precio Puerto Vallarta","reducción bolsas de Bichat Puerto Vallarta","bichectomía cirujana plástica Puerto Vallarta"],
-    coverImage: "/doctors/dra_daniela_anahi_ciambelli_romero.jpg",
+    coverImage: "/blog/bichectomia.jpg",
     content: `
 <h2>¿Qué es la bichectomía?</h2>
 <p>La bichectomía es un procedimiento quirúrgico mínimamente invasivo que consiste en la extracción de las <strong>bolsas de Bichat</strong> — acúmulos de grasa encapsulada ubicados en las mejillas, entre el músculo masetero y el buccinador. Su reducción o extracción total estiliza el rostro, define los pómulos y afina la zona media de la cara, logrando un efecto de rostro más anguloso y esculpido.</p>

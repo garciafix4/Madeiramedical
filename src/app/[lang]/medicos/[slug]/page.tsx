@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { DOCTORS_LIST, SITE } from "@/lib/content";
+import { DOCTORS_LIST, SPECIALTIES_MAP, SITE } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -209,6 +209,32 @@ export default async function DoctorPage({ params }: Props) {
                 <p className="text-white/60 text-sm mb-2 flex items-center gap-2">
                   📍 {SITE.address}
                 </p>
+
+                {/* Specialty hub links */}
+                {(() => {
+                  const doctorSpecs = SPECIALTIES_MAP.filter((spec) =>
+                    spec.doctorSlugs.includes(slug)
+                  );
+                  if (doctorSpecs.length === 0) return null;
+                  return (
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {doctorSpecs.map((spec) => (
+                        <Link
+                          key={spec.slug}
+                          href={`/${lang}/especialidades/${spec.slug}`}
+                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium transition-all hover:opacity-80"
+                          style={{
+                            backgroundColor: "rgba(4,107,159,0.3)",
+                            color: "#e0f2fe",
+                            border: "1px solid rgba(255,255,255,0.15)",
+                          }}
+                        >
+                          {isEn ? spec.nameEn : spec.name}
+                        </Link>
+                      ))}
+                    </div>
+                  );
+                })()}
 
                 <div className="flex flex-col sm:flex-row gap-3 mt-6">
                   <a

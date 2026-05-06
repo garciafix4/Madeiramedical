@@ -12,14 +12,7 @@ export function proxy(request: NextRequest) {
   );
   if (pathnameHasLang) return NextResponse.next();
 
-  // Detect language from Accept-Language header
-  const acceptLang = request.headers.get("accept-language") ?? "";
-  const preferred = acceptLang
-    .split(",")
-    .map((l) => l.split(";")[0].trim().toLowerCase().slice(0, 2))
-    .find((l) => SUPPORTED_LANGS.includes(l));
-
-  const lang = preferred ?? DEFAULT_LANG;
+  const lang = DEFAULT_LANG;
 
   // Redirect / to /es or /en
   const url = request.nextUrl.clone();

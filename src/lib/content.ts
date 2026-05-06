@@ -305,10 +305,15 @@ export const DOCTORS_LIST = [
   {
     slug: "dra_jessica_nitardy",
     name: "Dra. Jessica Nitardy",
-    specialty: "Especialista",
-    phone: "322 293 6235",
+    specialty: "Implant Prosthetics · Rehabilitación Estética Avanzada",
+    phone: "888-444-7778",
     photo: "/doctors/dra_jessica_nitardy.jpg",
-    services: [],
+    services: [
+      "Cosmetic Dentistry",
+      "General & Preventive Dentistry",
+      "Dental Implants & Restorations",
+      "Full Mouth Rehabilitation",
+    ],
   },
   {
     slug: "dr_mario_alejandro_rendon_acosta",
@@ -431,22 +436,6 @@ export const DOCTORS_LIST = [
       "Animales de apoyo emocional",
       "Perito en psicología",
     ],
-  },
-  {
-    slug: "dr_fernando_cantu",
-    name: "Dr. Fernando Cantú",
-    specialty: "Especialista",
-    phone: "322 293 6235",
-    photo: "/doctors/dr_fernando_cantu.jpg",
-    services: [],
-  },
-  {
-    slug: "dr_uriel_daniel_munoz_gonzalez",
-    name: "Dr. Uriel Daniel Muñoz González",
-    specialty: "Especialista",
-    phone: "322 293 6235",
-    photo: "/doctors/dr_uriel_daniel_munoz_gonzalez.jpg",
-    services: [],
   },
   {
     slug: "dra_roxana_proviquer",
@@ -587,6 +576,7 @@ export const SPECIALTIES_MAP = [
       "Madeira Medical Group odontología",
     ],
     doctorSlugs: [
+      "dra_jessica_nitardy",
       "dra_karla_marcela_figueroa_aguilar",
       "dra_sarai_bethzabee_rivera_ramos",
       "dr_jose_emanuel_martinez_rojo",

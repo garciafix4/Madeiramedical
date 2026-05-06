@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { getDict, SPECIALTIES } from "@/lib/i18n";
 import { SITE, DOCTORS_LIST } from "@/lib/content";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
@@ -244,7 +245,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
               <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {DOCTORS_LIST.map((doctor) => (
                   <StaggerItem key={doctor.slug}>
-                    <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-gray-100 h-full flex flex-col">
+                    <Link href={`/${lang}/medicos/${doctor.slug}`} className="group block bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden border border-gray-100 h-full flex flex-col">
                       {/* Photo */}
                       <div className="relative overflow-hidden" style={{ aspectRatio: "1/1" }}>
                         <Image
@@ -273,17 +274,14 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
                             )}
                           </ul>
                         )}
-                        <a
-                          href={`https://wa.me/52${doctor.phone.replace(/[\s\-]/g, "")}?text=Hola%2C%20quiero%20agendar%20una%20cita%20con%20${encodeURIComponent(doctor.name)}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-auto inline-flex items-center justify-center gap-2 w-full py-2 rounded-xl text-xs font-semibold transition-all hover:opacity-90"
+                        <span
+                          className="mt-auto inline-flex items-center justify-center gap-2 w-full py-2 rounded-xl text-xs font-semibold transition-all group-hover:opacity-90"
                           style={{ backgroundColor: "#023047", color: "#fff" }}
                         >
-                          📞 {doctor.phone}
-                        </a>
+                          Ver perfil →
+                        </span>
                       </div>
-                    </div>
+                    </Link>
                   </StaggerItem>
                 ))}
               </StaggerContainer>

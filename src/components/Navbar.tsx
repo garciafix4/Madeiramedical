@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import type { Dict } from "@/lib/i18n/es";
@@ -12,6 +13,17 @@ interface Props {
 export function Navbar({ d }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Detect if we're on the homepage (e.g. /es or /en)
+  const isHome = /^\/(es|en)\/?$/.test(pathname);
+
+  // Prefix anchor links with the home path when not on homepage
+  const homeBase = pathname.startsWith("/en") ? "/en" : "/es";
+  function resolveHref(href: string) {
+    if (href.startsWith("#") && !isHome) return `${homeBase}${href}`;
+    return href;
+  }
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -35,7 +47,7 @@ export function Navbar({ d }: Props) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#inicio" className="flex items-center">
+        <a href={resolveHref("#inicio")} className="flex items-center">
           <Image
             src="/logo.png"
             alt="Madeira Medical Group"
@@ -51,7 +63,7 @@ export function Navbar({ d }: Props) {
           {d.nav.links.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={resolveHref(link.href)}
               className="text-sm text-white/70 hover:text-white transition-colors"
             >
               {link.label}
@@ -71,7 +83,7 @@ export function Navbar({ d }: Props) {
             <span>{d.nav.langSwitch}</span>
           </a>
           <a
-            href={d.nav.ctaHref}
+            href={resolveHref(d.nav.ctaHref)}
             className="btn-gradient inline-flex items-center px-4 py-2 rounded-md text-sm font-semibold text-white"
           >
             {d.nav.ctaLabel}
@@ -104,7 +116,7 @@ export function Navbar({ d }: Props) {
             {d.nav.links.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={resolveHref(link.href)}
                 className="text-white/80 hover:text-white text-sm py-1"
                 onClick={() => setMenuOpen(false)}
               >
@@ -121,7 +133,7 @@ export function Navbar({ d }: Props) {
                 <span>{d.nav.langSwitch}</span>
               </a>
               <a
-                href={d.nav.ctaHref}
+                href={resolveHref(d.nav.ctaHref)}
                 className="btn-gradient flex-1 text-center py-2 rounded-lg font-semibold text-white text-sm"
                 onClick={() => setMenuOpen(false)}
               >

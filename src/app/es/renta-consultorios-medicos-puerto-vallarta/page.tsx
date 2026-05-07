@@ -9,7 +9,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Renta Consultorios Médicos Puerto Vallarta | Madeira Medical Group",
-  description: "Renta tu consultorio médico en Puerto Vallarta en la zona con mayor densidad médica. Secretaria incluida, internet de alta velocidad, estacionamiento. Disponibilidad limitada.",
+  description: "Renta tu consultorio médico en Puerto Vallarta en la zona con mayor densidad médica. Recepcionistas bilingües incluidas. Gestión de agendas profesional.",
   keywords: [
     "renta consultorios médicos Puerto Vallarta",
     "consultorio en renta Puerto Vallarta",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Renta Consultorios Médicos Puerto Vallarta | Madeira Medical Group",
-    description: "Consultorios modernos en la zona con mayor densidad médica de Puerto Vallarta. Secretaria e infraestructura incluidas.",
+    description: "Consultorios modernos en la zona con mayor densidad médica de Puerto Vallarta. Recepcionistas bilingües e infraestructura incluidas.",
     type: "website",
     locale: "es_MX",
   },
@@ -62,7 +62,7 @@ const jsonLd = {
         itemOffered: {
           "@type": "Service",
           name: "Renta de Consultorio Médico",
-          description: "Consultorio médico moderno con secretaria, internet, estacionamiento incluidos en Puerto Vallarta.",
+          description: "Consultorio médico moderno con recepcionistas bilingües incluidas en Puerto Vallarta.",
         },
       },
     ],
@@ -92,7 +92,7 @@ export default function RentaPage() {
                   </div>
                   <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 border border-white/20" style={{ backgroundColor: "rgba(4,107,159,0.5)", color: "#fff", backdropFilter: "blur(8px)" }}>
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    Último consultorio disponible
+                    Consultorios disponibles
                   </span>
                 </AnimatedSection>
                 <AnimatedSection delay={0.2}>
@@ -105,8 +105,8 @@ export default function RentaPage() {
                 </AnimatedSection>
                 <AnimatedSection delay={0.4}>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <a href={`https://wa.me/${SITE.whatsapp}?text=Hola,%20quiero%20información%20sobre%20renta%20de%20consultorio%20médico%20en%20Puerto%20Vallarta.`} target="_blank" rel="noopener noreferrer" className="btn-gradient inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-base text-white">
-                      💬 Consultar disponibilidad
+                    <a href="tel:3221483531" className="btn-gradient inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-base text-white">
+                      📞 Agendar ahora
                     </a>
                     <a href="#features" className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold text-base border border-white/25 text-white hover:bg-white/10 transition-all">
                       Ver qué incluye

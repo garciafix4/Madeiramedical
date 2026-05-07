@@ -46,8 +46,8 @@ export const en: Dict = {
     body: "Madeira Medical Group offers the finest facilities so you can deliver quality patient care from day one. Everything included, no complications.",
     features: [
       { icon: "🏥", title: "Modern offices", description: "Spaces equipped with high-quality medical furniture and premium finishes." },
-      { icon: "👩‍💼", title: "Secretary included", description: "Appointment management and patient reception from the moment you arrive." },
-      { icon: "📅", title: "Appointment management", description: "Professional scheduling system with automatic patient reminders." },
+      { icon: "👩‍💼", title: "Bilingual receptionists", description: "Appointment management and patient reception from the moment you arrive." },
+      { icon: "📅", title: "Schedule management", description: "Professional scheduling system — Doctoralia, Huli Practice, Eleonor, Google Calendar." },
       { icon: "💰", title: "Immediate ROI", description: "Maximize returns from day one with a high-traffic prime location in Versalles." },
     ],
     cta1: { label: "Download pricing", href: "#contacto" },

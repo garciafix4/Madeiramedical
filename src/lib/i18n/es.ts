@@ -44,11 +44,11 @@ export const es = {
     body: "Madeira Medical Group cuenta con las mejores instalaciones para que brindes atención de calidad a tus pacientes desde el primer día.",
     features: [
       { icon: "🏥", title: "Consultorios modernos", description: "Espacios equipados con mobiliario médico de alta calidad y acabados premium." },
-      { icon: "👩‍💼", title: "Secretaria incluida", description: "Gestión de citas y atención al paciente desde que llegas." },
-      { icon: "📅", title: "Gestión de consultas", description: "Sistema de agenda profesional y recordatorios automáticos para tus pacientes." },
+      { icon: "👩‍💼", title: "Recepcionistas bilingües", description: "Gestión de citas y atención al paciente desde que llegas." },
+      { icon: "📅", title: "Gestión de agendas", description: "Sistema de agenda profesional — Doctoralia, Huli Practice, Eleonor, Google Calendar." },
       { icon: "💰", title: "Retorno de inversión inmediato", description: "Saca el máximo provecho desde el primer mes con una ubicación de alto tráfico médico en Versalles." },
     ],
-    cta1: { label: "Descargar precios", href: "#contacto" },
+    cta1: { label: "Descargar precios", href: "tel:3221483531" },
     cta2: { label: "Rentar ahora", href: "https://wa.me/523222936235?text=Quiero%20rentar%20un%20consultorio%20en%20Madeira%20Medical%20Group." },
   },
   doctors: {

@@ -2,23 +2,27 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { DOCTORS_LIST, SPECIALTIES_MAP, SITE } from "@/lib/content";
+import { getDoctorBySlug, getAllDoctors } from "@/lib/db/doctors";
+import { getAllSpecialties } from "@/lib/db/specialties";
+import { getSiteConfig } from "@/lib/db/config";
+import { SITE as SITE_FALLBACK } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
+export const revalidate = 3600;
+
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
 export async function generateStaticParams() {
+  const doctors = await getAllDoctors().catch(() => []);
   const langs = ["es", "en"];
-  return langs.flatMap((lang) =>
-    DOCTORS_LIST.map((doctor) => ({ lang, slug: doctor.slug }))
-  );
+  return langs.flatMap((lang) => doctors.map((doctor) => ({ lang, slug: doctor.slug })));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, slug } = await params;
-  const doctor = DOCTORS_LIST.find((d) => d.slug === slug);
+  const doctor = await getDoctorBySlug(slug);
   if (!doctor) return {};
 
   const isEn = lang === "en";
@@ -71,8 +75,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function DoctorPage({ params }: Props) {
   const { lang, slug } = await params;
-  const doctor = DOCTORS_LIST.find((d) => d.slug === slug);
+  const [doctor, SPECIALTIES_MAP, siteConfig] = await Promise.all([
+    getDoctorBySlug(slug),
+    getAllSpecialties().catch(() => []),
+    getSiteConfig("SITE").catch(() => null),
+  ]);
   if (!doctor) notFound();
+  const SITE = { ...SITE_FALLBACK, ...(siteConfig ?? {}) };
 
   const d = getDict(lang);
   const isEn = lang === "en";
@@ -213,7 +222,7 @@ export default async function DoctorPage({ params }: Props) {
                 {/* Specialty hub links */}
                 {(() => {
                   const doctorSpecs = SPECIALTIES_MAP.filter((spec) =>
-                    spec.doctorSlugs.includes(slug)
+                    spec.doctor_slugs.includes(slug)
                   );
                   if (doctorSpecs.length === 0) return null;
                   return (
@@ -229,7 +238,7 @@ export default async function DoctorPage({ params }: Props) {
                             border: "1px solid rgba(255,255,255,0.15)",
                           }}
                         >
-                          {isEn ? spec.nameEn : spec.name}
+                          {isEn ? spec.name_en : spec.name}
                         </Link>
                       ))}
                     </div>

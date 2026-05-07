@@ -2,34 +2,43 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BLOG_POSTS, getPost } from "@/lib/blog";
-import { DOCTORS_LIST, SPECIALTIES_MAP, SITE } from "@/lib/content";
+import { getPostBySlug, getAllPosts } from "@/lib/db/blog";
+import { getAllDoctors } from "@/lib/db/doctors";
+import { getAllSpecialties } from "@/lib/db/specialties";
+import { getSiteConfig } from "@/lib/db/config";
+import { SITE as SITE_FALLBACK } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
+export const revalidate = 3600;
+
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
 export async function generateStaticParams() {
-  return BLOG_POSTS.map((post) => ({ lang: post.lang, slug: post.slug }));
+  const posts = await getAllPosts().catch(() => []);
+  return posts.map((post) => ({ lang: post.lang, slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, slug } = await params;
-  const post = getPost(slug, lang);
+  const [post, siteConfig, doctors] = await Promise.all([
+    getPostBySlug(slug, lang),
+    getSiteConfig("SITE").catch(() => null),
+    getAllDoctors().catch(() => []),
+  ]);
   if (!post) return {};
 
+  const SITE = { ...SITE_FALLBACK, ...(siteConfig ?? {}) };
   const url = `https://madeiramedicalgroup.com/${lang}/blog/${slug}`;
-  const image = post.coverImage
-    ? `https://madeiramedicalgroup.com${post.coverImage}`
-    : "https://madeiramedicalgroup.com/logo.png";
+  const image = post.cover_image ?? "https://madeiramedicalgroup.com/logo.png";
 
   return {
     title: `${post.title} | ${SITE.name}`,
     description: post.description,
     keywords: post.keywords,
-    authors: post.doctorSlug
-      ? [{ name: DOCTORS_LIST.find((d) => d.slug === post.doctorSlug)?.name ?? SITE.name }]
+    authors: post.doctor_slug
+      ? [{ name: doctors.find((d) => d.slug === post.doctor_slug)?.name ?? SITE.name }]
       : [{ name: SITE.name }],
     openGraph: {
       title: post.title,
@@ -38,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       locale: post.lang === "en" ? "en_US" : "es_MX",
       siteName: SITE.name,
-      publishedTime: post.publishedAt,
+      publishedTime: post.published_at,
       images: [{ url: image, width: 1280, height: 720, alt: post.title }],
     },
     twitter: { card: "summary_large_image", title: post.title, description: post.description, images: [image] },
@@ -49,18 +58,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { lang, slug } = await params;
-  const post = getPost(slug, lang);
+  const [post, DOCTORS_LIST, SPECIALTIES_MAP, allPosts, siteConfig] = await Promise.all([
+    getPostBySlug(slug, lang),
+    getAllDoctors().catch(() => []),
+    getAllSpecialties().catch(() => []),
+    getAllPosts(lang).catch(() => []),
+    getSiteConfig("SITE").catch(() => null),
+  ]);
   if (!post) notFound();
 
+  const SITE = { ...SITE_FALLBACK, ...(siteConfig ?? {}) };
   const d = getDict(lang);
   const isEn = lang === "en";
 
-  const doctor = post.doctorSlug ? DOCTORS_LIST.find((d) => d.slug === post.doctorSlug) : null;
-  const specialty = post.specialtySlug ? SPECIALTIES_MAP.find((s) => s.slug === post.specialtySlug) : null;
+  const doctor = post.doctor_slug ? DOCTORS_LIST.find((d) => d.slug === post.doctor_slug) : null;
+  const specialty = post.specialty_slug ? SPECIALTIES_MAP.find((s) => s.slug === post.specialty_slug) : null;
 
   // Related posts (same specialty or lang, exclude current)
-  const related = BLOG_POSTS.filter(
-    (p) => p.slug !== slug && p.lang === lang && (p.specialtySlug === post.specialtySlug || p.doctorSlug === post.doctorSlug)
+  const related = allPosts.filter(
+    (p) => p.slug !== slug && p.lang === lang && (p.specialty_slug === post.specialty_slug || p.doctor_slug === post.doctor_slug)
   ).slice(0, 3);
 
   const whatsappMsg = isEn
@@ -73,9 +89,9 @@ export default async function BlogPostPage({ params }: Props) {
       "@type": "MedicalWebPage",
       headline: post.title,
       description: post.description,
-      datePublished: post.publishedAt,
+      datePublished: post.published_at,
       url: `https://madeiramedicalgroup.com/${lang}/blog/${slug}`,
-      image: post.coverImage ? `https://madeiramedicalgroup.com${post.coverImage}` : undefined,
+      image: post.cover_image ? `https://madeiramedicalgroup.com${post.cover_image}` : undefined,
       publisher: { "@type": "MedicalOrganization", name: SITE.name, url: `https://madeiramedicalgroup.com/${lang}` },
       ...(doctor && {
         author: {
@@ -124,7 +140,7 @@ export default async function BlogPostPage({ params }: Props) {
                 className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-5 transition-all hover:opacity-80"
                 style={{ backgroundColor: "rgba(4,107,159,0.5)", color: "#fff", border: "1px solid rgba(255,255,255,0.2)" }}
               >
-                {isEn ? specialty.nameEn : specialty.name}
+                {isEn ? specialty.name_en : specialty.name}
               </Link>
             )}
 
@@ -145,23 +161,23 @@ export default async function BlogPostPage({ params }: Props) {
                 <div>
                   <p className="text-white text-sm font-semibold">{doctor.name}</p>
                   <p className="text-white/50 text-xs">
-                    {doctor.specialty} · {new Date(post.publishedAt).toLocaleDateString(isEn ? "en-US" : "es-MX", { year: "numeric", month: "long", day: "numeric" })}
+                    {doctor.specialty} · {new Date(post.published_at).toLocaleDateString(isEn ? "en-US" : "es-MX", { year: "numeric", month: "long", day: "numeric" })}
                   </p>
                 </div>
               </div>
             ) : (
               <p className="text-white/50 text-xs">
-                {new Date(post.publishedAt).toLocaleDateString(isEn ? "en-US" : "es-MX", { year: "numeric", month: "long", day: "numeric" })}
+                {new Date(post.published_at).toLocaleDateString(isEn ? "en-US" : "es-MX", { year: "numeric", month: "long", day: "numeric" })}
               </p>
             )}
           </div>
 
           {/* Cover image full-width */}
-          {post.coverImage && (
+          {post.cover_image && (
             <div className="max-w-4xl mx-auto px-4 sm:px-6">
               <div className="relative w-full rounded-t-3xl overflow-hidden shadow-2xl" style={{ aspectRatio: "16/7" }}>
                 <Image
-                  src={post.coverImage}
+                  src={post.cover_image}
                   alt={post.title}
                   fill
                   className="object-cover"
@@ -173,7 +189,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           )}
 
-          <svg viewBox="0 0 1440 40" className="w-full block" style={{ display: "block", marginTop: post.coverImage ? 0 : undefined }}>
+          <svg viewBox="0 0 1440 40" className="w-full block" style={{ display: "block", marginTop: post.cover_image ? 0 : undefined }}>
             <path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" fill="white" />
           </svg>
         </div>
@@ -222,8 +238,8 @@ export default async function BlogPostPage({ params }: Props) {
                     {related.map((rel) => (
                       <Link key={rel.slug} href={`/${lang}/blog/${rel.slug}`} className="group block rounded-xl overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
                         <div className="relative overflow-hidden bg-gray-100" style={{ aspectRatio: "16/9" }}>
-                          {rel.coverImage ? (
-                            <Image src={rel.coverImage} alt={rel.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="200px" />
+                          {rel.cover_image ? (
+                            <Image src={rel.cover_image} alt={rel.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="200px" />
                           ) : (
                             <div className="w-full h-full" style={{ background: "linear-gradient(135deg,#023047,#046b9f)" }} />
                           )}
@@ -303,7 +319,7 @@ export default async function BlogPostPage({ params }: Props) {
                     className="flex items-center justify-between text-sm font-semibold hover:underline"
                     style={{ color: "#046b9f" }}
                   >
-                    <span>{isEn ? specialty.nameEn : specialty.name}</span>
+                    <span>{isEn ? specialty.name_en : specialty.name}</span>
                     <span>→</span>
                   </Link>
                 </div>

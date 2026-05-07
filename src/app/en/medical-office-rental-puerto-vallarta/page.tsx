@@ -127,7 +127,7 @@ export default function RentalPage() {
                 ))}
               </StaggerContainer>
               <AnimatedSection className="text-center">
-                <a href={`https://wa.me/${SITE.whatsapp}?text=Hello,%20I%20would%20like%20to%20rent%20a%20medical%20office%20at%20Madeira%20Medical%20Group.`} target="_blank" rel="noopener noreferrer" className="btn-gradient inline-flex items-center gap-2 px-10 py-4 rounded-xl font-semibold text-lg text-white">
+                <a href="https://wa.me/523221483531?text=Hello,%20I%20would%20like%20to%20rent%20a%20medical%20office%20at%20Madeira%20Medical%20Group." target="_blank" rel="noopener noreferrer" className="btn-gradient inline-flex items-center gap-2 px-10 py-4 rounded-xl font-semibold text-lg text-white">
                   💬 I want to rent an office
                 </a>
               </AnimatedSection>

@@ -143,7 +143,7 @@ export default function RentaPage() {
                 ))}
               </StaggerContainer>
               <AnimatedSection className="text-center">
-                <a href={`https://wa.me/${SITE.whatsapp}?text=Hola,%20quiero%20rentar%20un%20consultorio%20en%20Madeira%20Medical%20Group.`} target="_blank" rel="noopener noreferrer" className="btn-gradient inline-flex items-center gap-2 px-10 py-4 rounded-xl font-semibold text-lg text-white">
+                <a href="https://wa.me/523221483531?text=Hola,%20quiero%20rentar%20un%20consultorio%20en%20Madeira%20Medical%20Group." target="_blank" rel="noopener noreferrer" className="btn-gradient inline-flex items-center gap-2 px-10 py-4 rounded-xl font-semibold text-lg text-white">
                   💬 Quiero rentar un consultorio
                 </a>
               </AnimatedSection>

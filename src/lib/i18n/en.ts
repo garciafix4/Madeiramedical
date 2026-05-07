@@ -49,6 +49,8 @@ export const en: Dict = {
       { icon: "👩‍💼", title: "Bilingual receptionists", description: "Appointment management and patient reception from the moment you arrive." },
       { icon: "📅", title: "Schedule management", description: "Professional scheduling system — Doctoralia, Huli Practice, Eleonor, Google Calendar." },
       { icon: "💰", title: "Immediate ROI", description: "Maximize returns from day one with a high-traffic prime location in Versalles." },
+      { icon: "📷", title: "24/7 Video Surveillance", description: "Property protected with a full video surveillance system for the safety of doctors and patients." },
+      { icon: "🔐", title: "Facial Recognition Access", description: "Smart access control with facial recognition for secure, frictionless entry." },
     ],
     cta1: { label: "Download pricing", href: "#contacto" },
     cta2: { label: "Rent now", href: "https://wa.me/523222936235?text=Hello,%20I%20would%20like%20to%20rent%20a%20medical%20office%20at%20Madeira%20Medical%20Group." },

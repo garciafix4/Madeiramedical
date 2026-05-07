@@ -205,8 +205,8 @@ async function generateImage(article) {
   }
 
   console.log(`  ⏳ Polling taskId ${taskId}...`);
-  for (let i = 0; i < 40; i++) {
-    await sleep(8000);
+  for (let i = 0; i < 90; i++) {
+    await sleep(10000);
     const info = await get(
       `https://api.kie.ai/api/v1/jobs/recordInfo?taskId=${taskId}`,
       { Authorization: `Bearer ${API_KEY}` }

@@ -2,38 +2,46 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { DOCTORS_LIST, SPECIALTIES_MAP, SITE } from "@/lib/content";
+import { getSpecialtyBySlug, getAllSpecialties } from "@/lib/db/specialties";
+import { getAllDoctors } from "@/lib/db/doctors";
+import { getSiteConfig } from "@/lib/db/config";
+import { SITE as SITE_FALLBACK } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
+export const revalidate = 3600;
+
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
 export async function generateStaticParams() {
+  const specialties = await getAllSpecialties().catch(() => []);
   const langs = ["es", "en"];
-  return langs.flatMap((lang) =>
-    SPECIALTIES_MAP.map((spec) => ({ lang, slug: spec.slug }))
-  );
+  return langs.flatMap((lang) => specialties.map((spec) => ({ lang, slug: spec.slug })));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, slug } = await params;
-  const spec = SPECIALTIES_MAP.find((s) => s.slug === slug);
+  const [spec, siteConfig] = await Promise.all([
+    getSpecialtyBySlug(slug),
+    getSiteConfig("SITE").catch(() => null),
+  ]);
   if (!spec) return {};
 
+  const SITE = { ...SITE_FALLBACK, ...(siteConfig ?? {}) };
   const isEn = lang === "en";
-  const headline = isEn ? spec.headlineEn : spec.headline;
-  const description = isEn ? spec.descriptionEn : spec.description;
+  const headline = isEn ? spec.headline_en : spec.headline;
+  const description = isEn ? spec.description_en : spec.description;
   const title = `${headline} | ${SITE.name}`;
   const url = `https://madeiramedicalgroup.com/${lang}/especialidades/${slug}`;
 
   return {
     title,
-    description,
+    description: description ?? undefined,
     keywords: spec.keywords,
     openGraph: {
       title,
-      description,
+      description: description ?? undefined,
       url,
       type: "website",
       locale: isEn ? "en_US" : "es_MX",
@@ -66,20 +74,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SpecialtyPage({ params }: Props) {
   const { lang, slug } = await params;
-  const spec = SPECIALTIES_MAP.find((s) => s.slug === slug);
+  const [spec, allDoctors, siteConfig] = await Promise.all([
+    getSpecialtyBySlug(slug),
+    getAllDoctors().catch(() => []),
+    getSiteConfig("SITE").catch(() => null),
+  ]);
   if (!spec) notFound();
 
+  const SITE = { ...SITE_FALLBACK, ...(siteConfig ?? {}) };
   const d = getDict(lang);
   const isEn = lang === "en";
 
-  const headline = isEn ? spec.headlineEn : spec.headline;
-  const specName = isEn ? spec.nameEn : spec.name;
-  const description = isEn ? spec.descriptionEn : spec.description;
+  const headline = isEn ? spec.headline_en : spec.headline;
+  const specName = isEn ? spec.name_en : spec.name;
+  const description = isEn ? spec.description_en : spec.description;
 
   // Resolve doctor objects for this specialty
-  const doctors = spec.doctorSlugs
-    .map((ds) => DOCTORS_LIST.find((doc) => doc.slug === ds))
-    .filter((doc): doc is (typeof DOCTORS_LIST)[number] => doc !== undefined);
+  const doctors = (spec.doctor_slugs ?? [])
+    .map((ds) => allDoctors.find((doc) => doc.slug === ds))
+    .filter((doc): doc is NonNullable<typeof doc> => doc !== undefined);
 
   // ── JSON-LD Schemas ──────────────────────────────────────────
   const jsonLdClinic = {
@@ -183,7 +196,7 @@ export default async function SpecialtyPage({ params }: Props) {
             {/* Short description */}
             <p className="text-white/70 text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
               {isEn
-                ? `Expert ${spec.nameEn} care at Madeira Medical Group — Puerto Vallarta's leading medical center in Versalles.`
+                ? `Expert ${spec.name_en} care at Madeira Medical Group — Puerto Vallarta's leading medical center in Versalles.`
                 : `Atención especializada en ${spec.name} en Madeira Medical Group, el centro médico referente de Versalles, Puerto Vallarta.`}
             </p>
 
@@ -336,7 +349,7 @@ export default async function SpecialtyPage({ params }: Props) {
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl font-bold text-white mb-3">
               {isEn
-                ? `Book a ${spec.nameEn} appointment`
+                ? `Book a ${spec.name_en} appointment`
                 : `Agenda una cita de ${spec.name}`}
             </h2>
             <p className="text-white/60 text-sm mb-8">

@@ -1,16 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getDict, SPECIALTIES } from "@/lib/i18n";
-import { SITE, DOCTORS_LIST, SPECIALTIES_MAP } from "@/lib/content";
+import { SITE as SITE_FALLBACK, DOCTORS as DOCTORS_SECTION } from "@/lib/content";
+import { getAllDoctors } from "@/lib/db/doctors";
+import { getAllSpecialties } from "@/lib/db/specialties";
+import { getAllConfig } from "@/lib/db/config";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
+export const revalidate = 3600;
+
 export default async function Page({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const d = getDict(lang);
   const specialties = SPECIALTIES.map((s) => (lang === "en" ? s.en : s.es));
+
+  const [DOCTORS_LIST, SPECIALTIES_MAP, config] = await Promise.all([
+    getAllDoctors().catch(() => []),
+    getAllSpecialties().catch(() => []),
+    getAllConfig().catch(() => ({})),
+  ]);
+
+  // Merge Supabase config with fallback values
+  const siteFromDb = (config as Record<string, unknown>).SITE as Record<string, unknown> | undefined;
+  const SITE = { ...SITE_FALLBACK, ...(siteFromDb ?? {}) } as typeof SITE_FALLBACK;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -205,7 +220,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
                       className="px-4 py-2 rounded-full text-sm font-medium border transition-all hover:scale-105 hover:shadow-md specialty-tag"
                       style={{ borderColor: "#046b9f", color: "#046b9f", backgroundColor: "#f0f9ff" }}
                     >
-                      {lang === "en" ? spec.nameEn : spec.name}
+                      {lang === "en" ? spec.name_en : spec.name}
                     </Link>
                   </StaggerItem>
                 ))}

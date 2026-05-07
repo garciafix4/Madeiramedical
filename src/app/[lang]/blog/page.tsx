@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { BLOG_POSTS, getPostsByLang } from "@/lib/blog";
-import { DOCTORS_LIST, SPECIALTIES_MAP, SITE } from "@/lib/content";
+import { getAllPosts } from "@/lib/db/blog";
+import { getAllDoctors } from "@/lib/db/doctors";
+import { getAllSpecialties } from "@/lib/db/specialties";
+import { getSiteConfig } from "@/lib/db/config";
+import { SITE as SITE_FALLBACK } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
+export const revalidate = 3600;
+
 type Props = { params: Promise<{ lang: string }> };
 
 export async function generateStaticParams() {
-  const langs = [...new Set(BLOG_POSTS.map((p) => p.lang))];
-  return langs.map((lang) => ({ lang }));
+  return [{ lang: "es" }, { lang: "en" }];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
   const isEn = lang === "en";
-  const title = isEn ? `Health Blog | ${SITE.name}` : `Blog de Salud | ${SITE.name}`;
+  const siteConfig = await getSiteConfig("SITE").catch(() => null);
+  const siteName = (siteConfig?.name as string) ?? SITE_FALLBACK.name;
+  const title = isEn ? `Health Blog | ${siteName}` : `Blog de Salud | ${siteName}`;
   const description = isEn
     ? "Expert health articles from the specialist doctors at Madeira Medical Group in Puerto Vallarta. Dental implants, Invisalign, plastic surgery, gynecology, and more."
     : "Artículos de salud escritos por los especialistas de Madeira Medical Group en Puerto Vallarta. Implantes dentales, Invisalign, cirugía plástica, ginecología y más.";
@@ -29,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: url,
       languages: { es: "https://madeiramedicalgroup.com/es/blog", en: "https://madeiramedicalgroup.com/en/blog" },
     },
-    openGraph: { title, description, url, type: "website", siteName: SITE.name, locale: isEn ? "en_US" : "es_MX" },
+    openGraph: { title, description, url, type: "website", siteName, locale: isEn ? "en_US" : "es_MX" },
     robots: { index: true, follow: true },
   };
 }
@@ -38,7 +44,13 @@ export default async function BlogIndexPage({ params }: Props) {
   const { lang } = await params;
   const d = getDict(lang);
   const isEn = lang === "en";
-  const posts = getPostsByLang(lang);
+  const [posts, DOCTORS_LIST, SPECIALTIES_MAP, siteConfig] = await Promise.all([
+    getAllPosts(lang).catch(() => []),
+    getAllDoctors().catch(() => []),
+    getAllSpecialties().catch(() => []),
+    getSiteConfig("SITE").catch(() => null),
+  ]);
+  const SITE = { ...(siteConfig ?? SITE_FALLBACK), ...SITE_FALLBACK, ...(siteConfig ?? {}) };
 
   // Split into featured (first 1) + rest
   const [featured, ...rest] = posts;
@@ -80,16 +92,16 @@ export default async function BlogIndexPage({ params }: Props) {
             <>
               {/* ── FEATURED POST ──────────────────────────────── */}
               {featured && (() => {
-                const doctor = featured.doctorSlug ? DOCTORS_LIST.find((d) => d.slug === featured.doctorSlug) : null;
-                const specialty = featured.specialtySlug ? SPECIALTIES_MAP.find((s) => s.slug === featured.specialtySlug) : null;
+                const doctor = featured.doctor_slug ? DOCTORS_LIST.find((d) => d.slug === featured.doctor_slug) : null;
+                const specialty = featured.specialty_slug ? SPECIALTIES_MAP.find((s) => s.slug === featured.specialty_slug) : null;
                 return (
                   <Link href={`/${lang}/blog/${featured.slug}`} className="group block mb-14">
                     <div className="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow">
                       {/* Image */}
                       <div className="relative overflow-hidden" style={{ minHeight: "320px" }}>
-                        {featured.coverImage ? (
+                        {featured.cover_image ? (
                           <Image
-                            src={featured.coverImage}
+                            src={featured.cover_image}
                             alt={featured.title}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -104,7 +116,7 @@ export default async function BlogIndexPage({ params }: Props) {
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10" />
                         {specialty && (
                           <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white" style={{ backgroundColor: "rgba(4,107,159,0.85)", backdropFilter: "blur(8px)" }}>
-                            {isEn ? specialty.nameEn : specialty.name}
+                            {isEn ? specialty.name_en : specialty.name}
                           </span>
                         )}
                       </div>
@@ -128,7 +140,7 @@ export default async function BlogIndexPage({ params }: Props) {
                           <div>
                             {doctor && <p className="text-xs font-semibold" style={{ color: "#023047" }}>{doctor.name}</p>}
                             <p className="text-xs text-gray-400">
-                              {new Date(featured.publishedAt).toLocaleDateString(isEn ? "en-US" : "es-MX", { year: "numeric", month: "long", day: "numeric" })}
+                              {new Date(featured.published_at).toLocaleDateString(isEn ? "en-US" : "es-MX", { year: "numeric", month: "long", day: "numeric" })}
                             </p>
                           </div>
                         </div>
@@ -145,8 +157,8 @@ export default async function BlogIndexPage({ params }: Props) {
               {rest.length > 0 && (
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                   {rest.map((post) => {
-                    const doctor = post.doctorSlug ? DOCTORS_LIST.find((d) => d.slug === post.doctorSlug) : null;
-                    const specialty = post.specialtySlug ? SPECIALTIES_MAP.find((s) => s.slug === post.specialtySlug) : null;
+                    const doctor = post.doctor_slug ? DOCTORS_LIST.find((d) => d.slug === post.doctor_slug) : null;
+                    const specialty = post.specialty_slug ? SPECIALTIES_MAP.find((s) => s.slug === post.specialty_slug) : null;
                     return (
                       <Link
                         key={post.slug}
@@ -155,9 +167,9 @@ export default async function BlogIndexPage({ params }: Props) {
                       >
                         {/* Cover */}
                         <div className="relative overflow-hidden bg-gray-100" style={{ aspectRatio: "16/9" }}>
-                          {post.coverImage ? (
+                          {post.cover_image ? (
                             <Image
-                              src={post.coverImage}
+                              src={post.cover_image}
                               alt={post.title}
                               fill
                               className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -170,7 +182,7 @@ export default async function BlogIndexPage({ params }: Props) {
                           )}
                           {specialty && (
                             <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-bold text-white" style={{ backgroundColor: "rgba(4,107,159,0.85)", backdropFilter: "blur(8px)" }}>
-                              {isEn ? specialty.nameEn : specialty.name}
+                              {isEn ? specialty.name_en : specialty.name}
                             </span>
                           )}
                         </div>
@@ -191,7 +203,7 @@ export default async function BlogIndexPage({ params }: Props) {
                                 </div>
                               )}
                               <p className="text-xs text-gray-400">
-                                {new Date(post.publishedAt).toLocaleDateString(isEn ? "en-US" : "es-MX", { month: "short", day: "numeric", year: "numeric" })}
+                                {new Date(post.published_at).toLocaleDateString(isEn ? "en-US" : "es-MX", { month: "short", day: "numeric", year: "numeric" })}
                               </p>
                             </div>
                             <span className="text-xs font-semibold" style={{ color: "#046b9f" }}>

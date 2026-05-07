@@ -47,6 +47,8 @@ export const es = {
       { icon: "👩‍💼", title: "Recepcionistas bilingües", description: "Gestión de citas y atención al paciente desde que llegas." },
       { icon: "📅", title: "Gestión de agendas", description: "Sistema de agenda profesional — Doctoralia, Huli Practice, Eleonor, Google Calendar." },
       { icon: "💰", title: "Retorno de inversión inmediato", description: "Saca el máximo provecho desde el primer mes con una ubicación de alto tráfico médico en Versalles." },
+      { icon: "📷", title: "Videovigilancia 24/7", description: "Propiedad protegida con sistema de videovigilancia para mayor seguridad de médicos y pacientes." },
+      { icon: "🔐", title: "Acceso con Reconocimiento Facial", description: "Control de acceso inteligente con reconocimiento facial para un ingreso seguro y sin fricciones." },
     ],
     cta1: { label: "Descargar precios", href: "tel:3221483531" },
     cta2: { label: "Rentar ahora", href: "https://wa.me/523222936235?text=Quiero%20rentar%20un%20consultorio%20en%20Madeira%20Medical%20Group." },

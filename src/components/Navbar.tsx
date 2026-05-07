@@ -21,7 +21,7 @@ export function Navbar({ d }: Props) {
   // Prefix anchor links with the home path when not on homepage
   const homeBase = pathname.startsWith("/en") ? "/en" : "/es";
   function resolveHref(href: string) {
-    if (href.startsWith("#") && !isHome) return `${homeBase}${href}`;
+    if (href.startsWith("#") && !isHome) return homeBase;
     return href;
   }
 

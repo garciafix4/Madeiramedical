@@ -88,6 +88,16 @@ export const RENTAL = {
       title: "Retorno de inversión inmediato",
       description: "Saca el máximo provecho desde el primer mes con una ubicación de alto tráfico.",
     },
+    {
+      icon: "📹",
+      title: "Videovigilancia 24/7",
+      description: "Propiedad protegida con sistema de videovigilancia para tu tranquilidad y la de tus pacientes.",
+    },
+    {
+      icon: "🔐",
+      title: "Control de acceso facial",
+      description: "Control de acceso con Reconocimiento Facial para mayor seguridad en el edificio.",
+    },
   ],
   cta1: { label: "Descargar precios", href: "#contacto" },
   cta2: { label: "Rentar ahora", href: `https://wa.me/523222936235?text=Quiero%20rentar%20un%20consultorio%20en%20Madeira%20Medical%20Group.` },

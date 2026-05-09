@@ -138,14 +138,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Our gynecologists — Dr. Mario Alejandro Rendón Acosta, Dr. Rogelio Ríos Esparza, and Dra. Devy Michelle Ojeda Castellón — all communicate effectively in English and are experienced working with international patients.</p>
 
 <h2>How Much Does a Gynecologist Visit Cost in Puerto Vallarta?</h2>
-<p>Consultation fees in Puerto Vallarta are significantly lower than US or Canadian rates, without compromising quality:</p>
-<ul>
-  <li><strong>Initial consultation:</strong> $800–$1,200 MXN (~$40–$60 USD)</li>
-  <li><strong>3D/4D ultrasound:</strong> $1,200–$2,000 MXN (~$60–$100 USD)</li>
-  <li><strong>Pap smear (with lab):</strong> $800–$1,500 MXN (~$40–$75 USD)</li>
-  <li><strong>Annual wellness package:</strong> $2,500–$4,000 MXN (~$125–$200 USD)</li>
-</ul>
-<p>For context, an OB-GYN visit in the US without insurance averages $150–$300 before any procedures. Puerto Vallarta offers the same standard of care for a fraction of the cost.</p>
+<p>Consultation fees in Puerto Vallarta are significantly lower than US or Canadian rates, without compromising quality. Contact us via WhatsApp for current pricing.</p>
 
 <h2>Do They Accept US or Canadian Insurance?</h2>
 <p>Most private clinics in Puerto Vallarta do not directly bill US or Canadian insurance. However:</p>
@@ -255,24 +248,18 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>The initial appointment typically takes <strong>60–90 minutes</strong>. Follow-up visits are shorter.</p>
 
 <h2>Healthcare Costs for Retirees in Puerto Vallarta vs. the US</h2>
-<p>One of the most compelling reasons retirees choose Puerto Vallarta is the dramatic difference in healthcare costs:</p>
-<ul>
-  <li><strong>Geriatric consultation:</strong> $1,000–$1,800 MXN (~$50–$90 USD) vs. $200–$350 in the US</li>
-  <li><strong>Comprehensive blood panel (BIOS LAB):</strong> $800–$1,500 MXN vs. $300–$600 in the US</li>
-  <li><strong>Electrocardiogram:</strong> Included in geriatric consultation</li>
-  <li><strong>Medications:</strong> Most brand-name drugs are available generically in Mexico at 60–80% less than US prices</li>
-</ul>
+<p>One of the most compelling reasons retirees choose Puerto Vallarta is the significant difference in healthcare costs compared to the US and Canada. Contact us via WhatsApp for current pricing information.</p>
 
 <h2>Navigating the Healthcare System as a Foreign Retiree</h2>
 <p>Here's what you need to know about healthcare options in Puerto Vallarta:</p>
 <h3>Private clinics (like Madeira Medical Group)</h3>
 <p>Best for specialist care, no wait times, English-speaking staff. You pay out of pocket and request documentation for insurance reimbursement.</p>
 <h3>IMSS (Social Security)</h3>
-<p>If you have legal residency in Mexico and are enrolled in IMSS (<em>Instituto Mexicano del Seguro Social</em>), you can access subsidized care. The voluntary enrollment fee for retirees is approximately $500–$700 USD per year — among the best deals in global healthcare.</p>
+<p>If you have legal residency in Mexico and are enrolled in IMSS (<em>Instituto Mexicano del Seguro Social</em>), you can access subsidized care — among the best deals in global healthcare.</p>
 <h3>Hospital CMQ</h3>
 <p>Puerto Vallarta's leading private hospital for emergencies, surgeries, and overnight care. Most Madeira Medical Group specialists have hospital privileges at CMQ.</p>
 <h3>Medical evacuation insurance</h3>
-<p>For complex conditions, consider a MedJet or Global Rescue membership ($300–$500/year) that covers emergency repatriation.</p>
+<p>For complex conditions, consider a MedJet or Global Rescue membership that covers emergency repatriation.</p>
 
 <h2>Tips for Expat Retirees New to Puerto Vallarta Healthcare</h2>
 <ul>
@@ -316,22 +303,10 @@ export const BLOG_POSTS: BlogPost[] = [
     coverImage: "/blog/dental-implants-cost.jpg",
     content: `
 <h2>Why Patients From the US and Canada Choose Puerto Vallarta for Dental Implants</h2>
-<p>A single dental implant in the United States costs between <strong>$3,900 and $5,500 USD</strong> — and that's just one tooth. In Puerto Vallarta, the same procedure with a top-tier implant brand runs <strong>$900–$1,800 USD</strong>. That's a savings of 60–75%, with no compromise on materials or technique.</p>
+<p>Dental implants in Puerto Vallarta offer significant savings compared to US and Canadian prices, with no compromise on materials or technique.</p>
 <p>At <strong>Madeira Medical Group</strong> in Versalles, Puerto Vallarta, our implant specialist <strong>Dra. Jessica Nitardy</strong> places implants using internationally recognized brands (Straumann, Nobel Biocare, Neodent) in a fully equipped surgical suite. This is not a dental tourism mill — it's a certified specialist practice with individualized treatment planning.</p>
 
-<h2>2026 Dental Implant Price Guide — Puerto Vallarta</h2>
-<ul>
-  <li><strong>Single implant (implant + abutment + crown):</strong> $900–$1,800 USD</li>
-  <li><strong>All-on-4 per arch:</strong> $9,000–$12,500 USD</li>
-  <li><strong>All-on-6 per arch:</strong> $11,000–$15,000 USD</li>
-  <li><strong>Bone graft (if needed):</strong> $400–$800 USD</li>
-  <li><strong>Sinus lift:</strong> $700–$1,200 USD</li>
-  <li><strong>Full-mouth rehabilitation (upper + lower):</strong> $18,000–$25,000 USD</li>
-  <li><strong>Initial consultation + X-rays + 3D scan:</strong> $80–$150 USD</li>
-</ul>
-<p>Compared to US prices, most patients save enough to cover flights, hotel, and several days of vacation — with money left over.</p>
-
-<h2>What's Included in the Price?</h2>
+<h2>What's Included in the Quote?</h2>
 <p>At Madeira Medical Group, your implant quote includes the implant fixture, abutment, and final crown. We use a 3D cone beam CT scan for precise placement planning — this is standard here, not an upsell. Anesthesia, surgical materials, and post-op care are included.</p>
 <p>What may add cost: bone grafting if bone density is insufficient, sinus lifts for upper posterior implants, and temporary restorations during the healing phase.</p>
 
@@ -358,7 +333,7 @@ export const BLOG_POSTS: BlogPost[] = [
 </details>
 <details>
   <summary><strong>How do I get started?</strong></summary>
-  <p>Send us a panoramic X-ray or recent dental scan via WhatsApp and we'll give you a preliminary assessment and cost estimate before you book travel. No commitment required.</p>
+  <p>Send us a panoramic X-ray or recent dental scan via WhatsApp and we'll give you a preliminary assessment before you book travel. No commitment required.</p>
 </details>
 `,
   },
@@ -380,13 +355,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>The name refers to the four implants, but the result is a full set of fixed teeth that look, feel, and function like natural teeth. At <strong>Madeira Medical Group</strong> in Puerto Vallarta, <strong>Dra. Karla Marcela Figueroa Aguilar</strong> specializes in advanced restorative dentistry including full-arch rehabilitation.</p>
 
 <h2>All-on-4 Cost in Puerto Vallarta vs. USA</h2>
-<ul>
-  <li><strong>All-on-4 per arch (Puerto Vallarta):</strong> $9,000–$12,500 USD</li>
-  <li><strong>All-on-6 per arch (Puerto Vallarta):</strong> $11,000–$15,000 USD</li>
-  <li><strong>Full mouth (upper + lower All-on-4):</strong> $18,000–$22,000 USD</li>
-  <li><strong>Same procedure in the USA:</strong> $25,000–$55,000 USD per arch</li>
-</ul>
-<p>Most patients save $20,000–$40,000 on a full-mouth case — enough to cover multiple trips to Puerto Vallarta with significant money remaining.</p>
+<p>All-on-4 in Puerto Vallarta offers significant savings compared to US prices. Contact us via WhatsApp to receive a personalized treatment estimate based on your specific case.</p>
 
 <h2>Step-by-Step: What Happens During Your All-on-4 Treatment</h2>
 <ol>
@@ -406,7 +375,7 @@ export const BLOG_POSTS: BlogPost[] = [
 </details>
 <details>
   <summary><strong>What if I need bone grafting?</strong></summary>
-  <p>All-on-4 is specifically designed to minimize the need for bone grafting by angling the posterior implants. However, if bone volume is insufficient, grafting may add $400–$800 USD and a few months to the timeline.</p>
+  <p>All-on-4 is specifically designed to minimize the need for bone grafting by angling the posterior implants. However, if bone volume is insufficient, grafting may add a few months to the timeline.</p>
 </details>
 <details>
   <summary><strong>How long do All-on-4 implants last?</strong></summary>
@@ -428,19 +397,10 @@ export const BLOG_POSTS: BlogPost[] = [
     coverImage: "/blog/implantes-dentales-precio.jpg",
     content: `
 <h2>¿Cuánto cuesta un implante dental en Puerto Vallarta?</h2>
-<p>El costo de un implante dental en Puerto Vallarta varía según la complejidad del caso, la marca del implante y si se requieren procedimientos adicionales como injertos óseos. En términos generales, un implante completo (fijación + pilar + corona) cuesta entre <strong>$18,000 y $35,000 MXN</strong> ($900–$1,800 USD), lo que representa un ahorro de hasta 60% frente a los precios en la Ciudad de México o Guadalajara.</p>
+<p>El costo de un implante dental en Puerto Vallarta varía según la complejidad del caso, la marca del implante y si se requieren procedimientos adicionales como injertos óseos. Contáctanos por WhatsApp para recibir un presupuesto personalizado.</p>
 <p>En <strong>Madeira Medical Group</strong>, ubicado en Versalles, la <strong>Dra. Saraí Bethzabee Rivera Ramos</strong> ofrece soluciones de implantología con marcas internacionales en un consultorio equipado con tecnología de diagnóstico digital.</p>
 
-<h2>Tabla de precios — Implantes Dentales Puerto Vallarta 2026</h2>
-<ul>
-  <li><strong>Implante unitario (fijación + pilar + corona):</strong> $18,000–$35,000 MXN</li>
-  <li><strong>All-on-4 por arcada:</strong> $180,000–$240,000 MXN</li>
-  <li><strong>Injerto óseo (si se requiere):</strong> $8,000–$15,000 MXN</li>
-  <li><strong>Elevación de seno maxilar:</strong> $12,000–$22,000 MXN</li>
-  <li><strong>Consulta inicial + radiografía panorámica:</strong> $800–$1,500 MXN</li>
-</ul>
-
-<h2>¿Qué incluye el precio?</h2>
+<h2>¿Qué incluye el presupuesto?</h2>
 <p>El presupuesto incluye el implante (fijación de titanio), el pilar protésico y la corona definitiva. La tomografía 3D para planificación es estándar en nuestra clínica. La anestesia local y los materiales quirúrgicos están incluidos.</p>
 <p>Lo que puede agregar costo: injertos óseos si hay pérdida ósea significativa, elevación de seno para implantes posteriores superiores, y extracciones si el diente todavía está presente.</p>
 
@@ -479,16 +439,8 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Smile design (or <em>diseño de sonrisa</em>) is a comprehensive cosmetic dentistry process that improves the appearance of your smile through a combination of techniques: porcelain veneers, composite veneers, whitening, gum contouring, and sometimes crowns or orthodontics. The goal is a harmonious, natural-looking smile that fits your facial proportions and personal aesthetic.</p>
 <p>At <strong>Madeira Medical Group</strong>, <strong>Dra. Karla Marcela Figueroa Aguilar</strong> specializes in Advanced Restorative and Cosmetic Dentistry, combining digital smile design software with high-quality porcelain materials.</p>
 
-<h2>Smile Design Options and Costs in Puerto Vallarta</h2>
-<ul>
-  <li><strong>Porcelain veneers (per tooth):</strong> $500–$900 USD</li>
-  <li><strong>Composite veneers (per tooth):</strong> $150–$300 USD</li>
-  <li><strong>Full smile (8–10 veneers):</strong> $4,000–$8,000 USD</li>
-  <li><strong>Professional whitening:</strong> $180–$350 USD</li>
-  <li><strong>Gum contouring (laser):</strong> $300–$600 USD</li>
-  <li><strong>Digital Smile Design consultation:</strong> $100–$200 USD (often deducted from treatment)</li>
-</ul>
-<p>Compared to US prices ($1,000–$2,500 per porcelain veneer), Puerto Vallarta offers savings of 50–70% with equivalent or better quality porcelain.</p>
+<h2>Smile Design Options in Puerto Vallarta</h2>
+<p>Puerto Vallarta offers significant savings on smile design procedures compared to US prices, with equivalent or better quality porcelain. Contact us via WhatsApp for a personalized estimate.</p>
 
 <h2>Porcelain vs. Composite Veneers: Which Is Right for You?</h2>
 <p><strong>Porcelain veneers</strong> are ultra-thin ceramic shells bonded to the front of teeth. They are stain-resistant, highly durable (10–20 years), and mimic the translucency of natural enamel. They require minimal tooth reduction and look the most natural.</p>
@@ -532,13 +484,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>At <strong>Madeira Medical Group</strong>, <strong>Dra. Mar Palacios</strong> is a certified Invisalign provider offering full treatment planning and ongoing remote monitoring for international patients.</p>
 
 <h2>Invisalign Cost in Puerto Vallarta</h2>
-<ul>
-  <li><strong>Invisalign Lite (minor corrections, up to 14 aligners):</strong> $2,200–$3,000 USD</li>
-  <li><strong>Invisalign Moderate (up to 26 aligners):</strong> $3,000–$4,000 USD</li>
-  <li><strong>Invisalign Full (complex cases, unlimited aligners):</strong> $4,000–$5,500 USD</li>
-  <li><strong>Invisalign in the USA:</strong> $4,500–$9,000 USD</li>
-</ul>
-<p>Savings range from 40–60%, making Puerto Vallarta one of the most cost-effective destinations to start or complete Invisalign treatment.</p>
+<p>Invisalign in Puerto Vallarta offers significant savings compared to US prices, making Puerto Vallarta one of the most cost-effective destinations to start or complete Invisalign treatment. Contact us via WhatsApp for a personalized estimate.</p>
 
 <h2>How Does Remote Invisalign Follow-Up Work?</h2>
 <p>Invisalign treatment is uniquely suited to international patients because most of the treatment happens at home, wearing your aligners. Here's the typical process:</p>
@@ -594,7 +540,6 @@ export const BLOG_POSTS: BlogPost[] = [
     <tr><td>Higiene</td><td>Se retiran para comer y cepillarse</td><td>Requieren técnica especial de limpieza</td></tr>
     <tr><td>Eficacia en casos complejos</td><td>Moderada</td><td>Alta</td></tr>
     <tr><td>Duración estimada</td><td>12–18 meses</td><td>18–24 meses</td></tr>
-    <tr><td>Precio en Puerto Vallarta</td><td>$45,000–$100,000 MXN</td><td>$22,000–$55,000 MXN</td></tr>
   </tbody>
 </table>
 
@@ -704,15 +649,8 @@ export const BLOG_POSTS: BlogPost[] = [
   <li><strong>Bichectomy:</strong> Minimally invasive removal of Bichat fat pads to define the face.</li>
 </ul>
 
-<h2>Facial Harmonization Costs in Puerto Vallarta (USD)</h2>
-<ul>
-  <li><strong>Botox per area:</strong> $130–$230 USD</li>
-  <li><strong>Hyaluronic acid (per syringe):</strong> $200–$450 USD</li>
-  <li><strong>Full harmonization package:</strong> $600–$1,500 USD</li>
-  <li><strong>Collagen biostimulator per session:</strong> $400–$800 USD</li>
-  <li><strong>PDO thread lift:</strong> $500–$1,200 USD</li>
-</ul>
-<p>Compared to US prices (Botox: $400–$600 per area; fillers: $800–$1,400 per syringe), Puerto Vallarta offers 50–65% savings with the same product brands (Juvederm, Restylane, Botox/Allergan).</p>
+<h2>Facial Harmonization Costs in Puerto Vallarta</h2>
+<p>Puerto Vallarta offers significant savings on facial harmonization compared to US prices, using the same internationally recognized product brands (Juvederm, Restylane, Botox/Allergan). Contact us via WhatsApp for a personalized estimate.</p>
 
 <h2>Is Facial Harmonization Safe in Puerto Vallarta?</h2>
 <p>Safety depends on who performs the treatment, not the location. Always verify: the practitioner is a licensed <em>médico</em> (not a nurse, esthetician, or beautician), products have COFEPRIS registration (Mexico's FDA equivalent), and the clinic is a medical office — not a spa or beauty salon.</p>
@@ -747,17 +685,11 @@ export const BLOG_POSTS: BlogPost[] = [
     coverImage: "/blog/botox-precio.jpg",
     content: `
 <h2>Bótox en Puerto Vallarta: lo que nadie te cuenta</h2>
-<p>En Puerto Vallarta hay desde spas de playa que ofrecen bótox a $500 pesos hasta consultorios médicos especializados con marcas certificadas internacionalmente. La diferencia de precio es real — pero también lo es la diferencia en seguridad y resultado.</p>
+<p>En Puerto Vallarta existen desde spas de playa que ofrecen bótox hasta consultorios médicos especializados con marcas certificadas internacionalmente. La diferencia de precio es real — pero también lo es la diferencia en seguridad y resultado.</p>
 <p>La <strong>Dra. Esli Pérez Castro</strong>, especialista en Medicina Estética y Antienvejecimiento en <strong>Madeira Medical Group</strong> (Versalles, Puerto Vallarta), explica lo que necesitas saber antes de tu próxima aplicación.</p>
 
-<h2>Precios del bótox en Puerto Vallarta 2026</h2>
-<ul>
-  <li><strong>Bótox por área (frente, entrecejo, patas de gallo):</strong> $2,500–$4,500 MXN</li>
-  <li><strong>Tratamiento de 3 áreas (paquete):</strong> $6,500–$10,000 MXN</li>
-  <li><strong>Bótox masétero (bruxismo o estilización facial):</strong> $4,000–$6,000 MXN</li>
-  <li><strong>Bótox hiperhidrosis (axilas):</strong> $7,000–$12,000 MXN</li>
-  <li><strong>Marcas utilizadas:</strong> Botox (Allergan), Dysport, Xeomin — con registro COFEPRIS</li>
-</ul>
+<h2>Precios del bótox en Puerto Vallarta</h2>
+<p>Los precios varían según el número de áreas y el protocolo de tratamiento. Contáctanos por WhatsApp para conocer el costo de tu consulta. <strong>Marcas utilizadas:</strong> Botox (Allergan), Dysport, Xeomin — con registro COFEPRIS.</p>
 
 <h2>¿Por qué importa quién aplica el bótox?</h2>
 <p>La toxina botulínica es un medicamento de prescripción médica. En México, solo los médicos con cédula profesional pueden legalmente prescribirla y aplicarla. Sin embargo, en la práctica informal proliferan aplicaciones por esteticistas, enfermeras y hasta personas sin formación médica.</p>
@@ -799,15 +731,8 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Puerto Vallarta has one of Mexico's largest expat communities — an estimated 10,000+ Americans and Canadians living full or part-time in the area. Many have discovered that high-quality aesthetic medicine is not only available locally, but significantly more affordable than back home.</p>
 <p><strong>Dr. Edgar Martín Hernández Jiménez</strong> at <strong>Madeira Medical Group</strong> specializes in aesthetic medicine and anti-aging treatments, working regularly with international patients.</p>
 
-<h2>Botox and Filler Prices in Puerto Vallarta (USD)</h2>
-<ul>
-  <li><strong>Botox per area:</strong> $130–$230 USD (vs. $400–$600 in the US)</li>
-  <li><strong>Full face Botox (3 areas):</strong> $330–$550 USD</li>
-  <li><strong>Hyaluronic acid filler (per syringe):</strong> $200–$450 USD (vs. $700–$1,400 in the US)</li>
-  <li><strong>Lip filler:</strong> $220–$400 USD</li>
-  <li><strong>Under-eye filler (tear trough):</strong> $350–$500 USD</li>
-  <li><strong>Chin or jawline filler:</strong> $300–$600 USD</li>
-</ul>
+<h2>Botox and Filler Prices in Puerto Vallarta</h2>
+<p>Botox and filler treatments in Puerto Vallarta are significantly more affordable than in the US, using the same internationally recognized product brands. Contact us via WhatsApp for current pricing and to discuss your treatment plan.</p>
 
 <h2>How to Find a Qualified Provider in Puerto Vallarta</h2>
 <p>The most important step is verifying credentials. Ask to see:</p>
@@ -913,13 +838,7 @@ export const BLOG_POSTS: BlogPost[] = [
 </ul>
 
 <h2>What Does BHRT Cost in Puerto Vallarta?</h2>
-<ul>
-  <li><strong>Initial consultation + comprehensive hormone panel:</strong> $150–$300 USD</li>
-  <li><strong>Monthly BHRT (oral/transdermal):</strong> $80–$200 USD/month</li>
-  <li><strong>Pellet therapy (3–6 month duration):</strong> $350–$700 USD per insertion</li>
-  <li><strong>Follow-up hormone testing (every 3–6 months):</strong> $80–$150 USD</li>
-</ul>
-<p>In the US, comparable BHRT programs typically cost $200–$500/month. Puerto Vallarta offers significant savings, especially for long-term treatment.</p>
+<p>BHRT in Puerto Vallarta offers significant savings compared to US programs, especially for long-term treatment. Contact us via WhatsApp for current pricing on consultations and treatment protocols.</p>
 
 <h2>The BHRT Process at Madeira Medical Group</h2>
 <ol>
@@ -1019,11 +938,7 @@ export const BLOG_POSTS: BlogPost[] = [
 </ul>
 
 <h2>What Does Menopause Care Cost in Puerto Vallarta?</h2>
-<ul>
-  <li><strong>Initial gynecological consultation:</strong> $800–$1,200 MXN ($40–$60 USD)</li>
-  <li><strong>Hormone panel (E2, FSH, LH, testosterone, thyroid):</strong> $1,200–$2,500 MXN ($60–$125 USD)</li>
-  <li><strong>Monthly HRT medications:</strong> $500–$1,500 MXN depending on protocol</li>
-</ul>
+<p>Menopause care in Puerto Vallarta is significantly more affordable than in the US or Canada. Contact us via WhatsApp for current pricing on consultations and hormone panels.</p>
 
 <h2>Frequently Asked Questions</h2>
 <details>
@@ -1110,9 +1025,9 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Diabetes Management in Puerto Vallarta</h2>
 <p>Managing diabetes in Mexico involves a few practical considerations:</p>
 <ul>
-  <li><strong>Insulin availability:</strong> All common insulin brands (Humalog/lispro, Lantus/glargine, NovoLog) are available at pharmacies. Prices are significantly lower than in the US — often 70–80% less without insurance.</li>
+  <li><strong>Insulin availability:</strong> All common insulin brands (Humalog/lispro, Lantus/glargine, NovoLog) are available at pharmacies at significantly lower prices than in the US.</li>
   <li><strong>Metformin and other oral agents:</strong> Widely available and affordable.</li>
-  <li><strong>GLP-1 agonists (Ozempic/semaglutide, Trulicity):</strong> Available in Mexico with prescription — often at 40–60% of US prices.</li>
+  <li><strong>GLP-1 agonists (Ozempic/semaglutide, Trulicity):</strong> Available in Mexico with prescription at significant savings compared to US prices.</li>
   <li><strong>Continuous glucose monitors (CGM):</strong> Dexcom and Libre sensors available at pharmacies and online.</li>
 </ul>
 
@@ -1120,12 +1035,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Bring documentation of your current management: recent labs (HbA1c, TSH, lipids, kidney function), current medications and doses, and any recent specialist notes. Dra. Moreno can review your case and provide continuity of care, prescribe locally available equivalents, and order monitoring labs through BIOS LAB on-site.</p>
 
 <h2>Lab Costs in Puerto Vallarta</h2>
-<ul>
-  <li><strong>HbA1c (glycated hemoglobin):</strong> $250–$400 MXN ($12–$20 USD)</li>
-  <li><strong>Fasting glucose + insulin:</strong> $200–$350 MXN ($10–$18 USD)</li>
-  <li><strong>Complete metabolic panel:</strong> $400–$700 MXN ($20–$35 USD)</li>
-  <li><strong>TSH + free T4:</strong> $350–$600 MXN ($17–$30 USD)</li>
-</ul>
+<p>Lab work in Puerto Vallarta is significantly more affordable than in the US. BIOS LAB, located on-site at Madeira Medical Group, offers a full panel of tests. Contact us via WhatsApp for current pricing.</p>
 
 <h2>Frequently Asked Questions</h2>
 <details>
@@ -1277,7 +1187,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Preguntas frecuentes</h2>
 <details>
   <summary><strong>¿Cuánto cuesta la consulta con nutriólogo en Puerto Vallarta?</strong></summary>
-  <p>La consulta inicial con análisis InBody cuesta entre $600 y $900 MXN en Madeira Medical Group. Las consultas de seguimiento son más económicas. Contáctanos por WhatsApp para confirmar disponibilidad y costo actualizado.</p>
+  <p>La consulta inicial incluye el análisis InBody. Las consultas de seguimiento son más económicas. Contáctanos por WhatsApp para confirmar disponibilidad y costo actualizado.</p>
 </details>
 <details>
   <summary><strong>¿Cuántas consultas necesito?</strong></summary>
@@ -1312,11 +1222,7 @@ export const BLOG_POSTS: BlogPost[] = [
 </ul>
 
 <h2>Nutrition Consultation Costs in Puerto Vallarta</h2>
-<ul>
-  <li><strong>Initial consultation + InBody analysis:</strong> $30–$45 USD</li>
-  <li><strong>Follow-up consultations:</strong> $20–$30 USD</li>
-  <li><strong>Sports nutrition package (4 sessions):</strong> $100–$150 USD</li>
-</ul>
+<p>Nutrition consultations in Puerto Vallarta are very affordable. Contact us via WhatsApp for current pricing on initial consultations and follow-up sessions.</p>
 
 <h2>Common Reasons Expats See a Nutritionist in Puerto Vallarta</h2>
 <ul>
@@ -1364,12 +1270,7 @@ export const BLOG_POSTS: BlogPost[] = [
 </ul>
 
 <h2>Therapy Costs in Puerto Vallarta</h2>
-<ul>
-  <li><strong>Individual session (50 min):</strong> $700–$1,200 MXN ($35–$60 USD)</li>
-  <li><strong>Couples session (60–80 min):</strong> $900–$1,500 MXN ($45–$75 USD)</li>
-  <li><strong>Online session:</strong> Comparable pricing, payment via bank transfer or PayPal</li>
-</ul>
-<p>Compared to US out-of-pocket therapy rates ($150–$300 per session), Puerto Vallarta offers significant savings — making consistent weekly therapy financially sustainable for many expats.</p>
+<p>Therapy in Puerto Vallarta is significantly more affordable than US out-of-pocket rates, making consistent weekly therapy financially sustainable for many expats. Online sessions are also available. Contact us via WhatsApp for current pricing.</p>
 
 <h2>Expat-Specific Challenges That Therapy Can Help With</h2>
 <ul>
@@ -1407,19 +1308,8 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Lab Work in Puerto Vallarta: Affordable, Fast, and No Appointment Needed</h2>
 <p>One of the practical advantages of Puerto Vallarta's medical infrastructure that surprises expats and visitors: clinical laboratory services are fast, affordable, and widely available. <strong>BIOS LAB</strong>, the clinical laboratory at <strong>Madeira Medical Group</strong> in Versalles, offers a comprehensive menu of tests with results typically available same-day or within 24 hours.</p>
 
-<h2>Common Lab Panels and Prices (USD)</h2>
-<ul>
-  <li><strong>Complete blood count (CBC):</strong> $8–$15 USD</li>
-  <li><strong>Comprehensive metabolic panel (CMP):</strong> $15–$25 USD</li>
-  <li><strong>Lipid panel (cholesterol, triglycerides, HDL, LDL):</strong> $12–$20 USD</li>
-  <li><strong>Thyroid panel (TSH, free T3, free T4):</strong> $20–$40 USD</li>
-  <li><strong>HbA1c (diabetes monitoring):</strong> $12–$20 USD</li>
-  <li><strong>Complete hormone panel (FSH, LH, estradiol, testosterone, DHEA):</strong> $40–$80 USD</li>
-  <li><strong>Vitamin D (25-OH):</strong> $15–$25 USD</li>
-  <li><strong>PSA (prostate):</strong> $15–$25 USD</li>
-  <li><strong>Annual comprehensive checkup panel:</strong> $60–$120 USD</li>
-</ul>
-<p>In the US, an annual comprehensive blood panel without insurance typically costs $300–$600. The same work in Puerto Vallarta costs 70–80% less.</p>
+<h2>Common Lab Panels at BIOS LAB</h2>
+<p>BIOS LAB offers a comprehensive menu of tests at a fraction of US prices. Common panels include: Complete blood count (CBC), comprehensive metabolic panel, lipid panel, thyroid panel, HbA1c, hormone panels, Vitamin D, PSA, and full annual checkup packages. Contact us for current pricing.</p>
 
 <h2>What Should Your Annual Blood Work Include?</h2>
 <p>For adults over 40, a thorough annual panel typically includes:</p>
@@ -1470,14 +1360,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p><strong>Dra. Daniela Anahí Ciambelli Romero</strong>, plastic and reconstructive surgeon at <strong>Madeira Medical Group</strong>, specializes in body contouring, facial rejuvenation, and breast procedures.</p>
 
 <h2>Tummy Tuck (Abdominoplasty) Costs in Puerto Vallarta</h2>
-<ul>
-  <li><strong>Full abdominoplasty:</strong> $5,500–$8,500 USD (vs. $12,000–$18,000 in the US)</li>
-  <li><strong>Mini tummy tuck:</strong> $3,500–$5,500 USD</li>
-  <li><strong>Liposuction (per area):</strong> $1,800–$3,500 USD</li>
-  <li><strong>Lipo + tummy tuck (mommy makeover component):</strong> $7,000–$11,000 USD</li>
-  <li><strong>Full mommy makeover (tummy tuck + breast):</strong> $10,000–$16,000 USD</li>
-</ul>
-<p>These prices include surgeon fees, anesthesiology, operating room, and post-op care. Hospital stay (if required) is additional.</p>
+<p>Plastic surgery in Puerto Vallarta is significantly more affordable than in the US, with no compromise on quality or safety. Quoted fees typically include surgeon fees, anesthesiology, operating room, and post-op care. Contact us via WhatsApp for a personalized estimate based on your specific procedure.</p>
 
 <h2>Is It Safe to Have a Tummy Tuck in Puerto Vallarta?</h2>
 <p>Safety in plastic surgery depends on three factors: surgeon credentials, facility accreditation, and patient selection. Always verify:</p>
@@ -1545,10 +1428,7 @@ export const BLOG_POSTS: BlogPost[] = [
 </ol>
 
 <h2>Precio de la bichectomía en Puerto Vallarta</h2>
-<ul>
-  <li><strong>Bichectomía bilateral (las dos mejillas):</strong> $18,000–$30,000 MXN ($900–$1,500 USD)</li>
-  <li>Incluye: honorarios médicos, anestesia local, materiales quirúrgicos, seguimiento postoperatorio.</li>
-</ul>
+<p>El precio incluye honorarios médicos, anestesia local, materiales quirúrgicos y seguimiento postoperatorio. Contáctanos por WhatsApp para conocer el costo actualizado.</p>
 
 <h2>Recuperación: ¿cuánto tiempo necesito?</h2>
 <p>La recuperación es relativamente corta: inflamación notable los primeros 5–7 días, dieta blanda durante 1–2 semanas, evitar actividad física intensa por 10 días. Los resultados definitivos se aprecian entre los 3 y 6 meses, cuando baja toda la inflamación.</p>

@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { getDoctorBySlug, getAllDoctors } from "@/lib/db/doctors";
 import { getAllSpecialties } from "@/lib/db/specialties";
 import { getSiteConfig } from "@/lib/db/config";
-import { SITE as SITE_FALLBACK } from "@/lib/content";
+import { SITE as SITE_FALLBACK, DOCTORS_LIST as DOCTORS_FALLBACK } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -15,7 +15,8 @@ export const revalidate = 3600;
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
 export async function generateStaticParams() {
-  const doctors = await getAllDoctors().catch(() => []);
+  const doctorsFromDb = await getAllDoctors().catch(() => []);
+  const doctors = doctorsFromDb.length > 0 ? doctorsFromDb : DOCTORS_FALLBACK;
   const langs = ["es", "en"];
   return langs.flatMap((lang) => doctors.map((doctor) => ({ lang, slug: doctor.slug })));
 }

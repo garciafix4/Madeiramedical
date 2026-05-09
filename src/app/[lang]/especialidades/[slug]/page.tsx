@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { getSpecialtyBySlug, getAllSpecialties } from "@/lib/db/specialties";
 import { getAllDoctors } from "@/lib/db/doctors";
 import { getSiteConfig } from "@/lib/db/config";
-import { SITE as SITE_FALLBACK } from "@/lib/content";
+import { SITE as SITE_FALLBACK, SPECIALTIES_MAP as SPECIALTIES_FALLBACK } from "@/lib/content";
 import { getDict } from "@/lib/i18n";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -15,7 +15,8 @@ export const revalidate = 3600;
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
 export async function generateStaticParams() {
-  const specialties = await getAllSpecialties().catch(() => []);
+  const specialtiesFromDb = await getAllSpecialties().catch(() => []);
+  const specialties = specialtiesFromDb.length > 0 ? specialtiesFromDb : SPECIALTIES_FALLBACK;
   const langs = ["es", "en"];
   return langs.flatMap((lang) => specialties.map((spec) => ({ lang, slug: spec.slug })));
 }

@@ -7,6 +7,7 @@ import { getAllDoctors } from "@/lib/db/doctors";
 import { getAllSpecialties } from "@/lib/db/specialties";
 import { getSiteConfig } from "@/lib/db/config";
 import { SITE as SITE_FALLBACK } from "@/lib/content";
+import { BLOG_POSTS as BLOG_FALLBACK } from "@/lib/blog";
 import { getDict } from "@/lib/i18n";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -16,7 +17,8 @@ export const revalidate = 3600;
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts().catch(() => []);
+  const postsFromDb = await getAllPosts().catch(() => []);
+  const posts = postsFromDb.length > 0 ? postsFromDb : BLOG_FALLBACK;
   return posts.map((post) => ({ lang: post.lang, slug: post.slug }));
 }
 

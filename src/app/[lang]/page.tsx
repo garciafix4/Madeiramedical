@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getDict, SPECIALTIES } from "@/lib/i18n";
-import { SITE as SITE_FALLBACK, DOCTORS as DOCTORS_SECTION } from "@/lib/content";
+import { SITE as SITE_FALLBACK, DOCTORS as DOCTORS_SECTION, DOCTORS_LIST as DOCTORS_FALLBACK, SPECIALTIES_MAP as SPECIALTIES_FALLBACK } from "@/lib/content";
 import { getAllDoctors } from "@/lib/db/doctors";
 import { getAllSpecialties } from "@/lib/db/specialties";
 import { getAllConfig } from "@/lib/db/config";
@@ -17,11 +17,15 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
   const d = getDict(lang);
   const specialties = SPECIALTIES.map((s) => (lang === "en" ? s.en : s.es));
 
-  const [DOCTORS_LIST, SPECIALTIES_MAP, config] = await Promise.all([
+  const [doctorsFromDb, specialtiesFromDb, config] = await Promise.all([
     getAllDoctors().catch(() => []),
     getAllSpecialties().catch(() => []),
     getAllConfig().catch(() => ({})),
   ]);
+  const DOCTORS_LIST = doctorsFromDb.length > 0 ? doctorsFromDb : DOCTORS_FALLBACK;
+  const SPECIALTIES_MAP = specialtiesFromDb.length > 0
+    ? specialtiesFromDb
+    : SPECIALTIES_FALLBACK.map((s) => ({ ...s, name_en: s.nameEn, doctor_slugs: s.doctorSlugs }));
 
   // Merge Supabase config with fallback values
   const siteFromDb = (config as Record<string, unknown>).SITE as Record<string, unknown> | undefined;

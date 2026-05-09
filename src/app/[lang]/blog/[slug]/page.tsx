@@ -6,7 +6,7 @@ import { getPostBySlug, getAllPosts } from "@/lib/db/blog";
 import { getAllDoctors } from "@/lib/db/doctors";
 import { getAllSpecialties } from "@/lib/db/specialties";
 import { getSiteConfig } from "@/lib/db/config";
-import { SITE as SITE_FALLBACK } from "@/lib/content";
+import { SITE as SITE_FALLBACK, DOCTORS_LIST as DOCTORS_FALLBACK, SPECIALTIES_MAP as SPECIALTIES_FALLBACK } from "@/lib/content";
 import { BLOG_POSTS as BLOG_FALLBACK, getPost as getPostFallback } from "@/lib/blog";
 import { getDict } from "@/lib/i18n";
 import { Navbar } from "@/components/Navbar";
@@ -60,13 +60,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { lang, slug } = await params;
-  const [postFromDb, DOCTORS_LIST, SPECIALTIES_MAP, allPostsFromDb, siteConfig] = await Promise.all([
+  const [postFromDb, doctorsFromDb, specialtiesFromDb, allPostsFromDb, siteConfig] = await Promise.all([
     getPostBySlug(slug, lang),
     getAllDoctors().catch(() => []),
     getAllSpecialties().catch(() => []),
     getAllPosts(lang).catch(() => []),
     getSiteConfig("SITE").catch(() => null),
   ]);
+  const DOCTORS_LIST = doctorsFromDb.length > 0 ? doctorsFromDb : DOCTORS_FALLBACK;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const SPECIALTIES_MAP: any[] = specialtiesFromDb.length > 0 ? specialtiesFromDb : SPECIALTIES_FALLBACK.map(s => ({ ...s, name_en: s.nameEn, doctor_slugs: s.doctorSlugs }));
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const post: any = postFromDb ?? (() => {
     const fb = getPostFallback(slug, lang);

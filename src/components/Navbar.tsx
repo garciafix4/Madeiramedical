@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import type { Dict } from "@/lib/i18n/es";
 
@@ -32,11 +31,8 @@ export function Navbar({ d }: Props) {
   }, []);
 
   return (
-    <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-20"
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-20 animate-navbar"
       style={{
         backgroundColor: scrolled ? "#023047" : "rgba(2,48,71,0.85)",
         backdropFilter: "blur(12px)",
@@ -108,9 +104,7 @@ export function Navbar({ d }: Props) {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
+        <div
           className="lg:hidden border-t border-white/10"
           style={{ backgroundColor: "#023047" }}
         >
@@ -145,8 +139,8 @@ export function Navbar({ d }: Props) {
               </a>
             </div>
           </nav>
-        </motion.div>
+        </div>
       )}
-    </motion.header>
+    </header>
   );
 }

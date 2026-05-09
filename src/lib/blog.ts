@@ -50,16 +50,6 @@ export const BLOG_POSTS: BlogPost[] = [
   <li><strong>Hilos tensores:</strong> Para definir el óvalo facial y el cuello sin cirugía.</li>
 </ul>
 
-<h2>¿Cuánto cuesta la armonización facial en Puerto Vallarta?</h2>
-<p>El costo varía según las áreas a tratar y los productos utilizados. En términos generales:</p>
-<ul>
-  <li><strong>Bótox (por área):</strong> $2,500–$4,500 MXN</li>
-  <li><strong>Ácido hialurónico (por jeringa):</strong> $4,000–$8,500 MXN según la marca (Juvederm, Restylane, Teosyal)</li>
-  <li><strong>Paquete de armonización completa:</strong> $12,000–$30,000 MXN dependiendo del plan</li>
-  <li><strong>Bioestimulador de colágeno:</strong> $8,000–$15,000 MXN por sesión</li>
-</ul>
-<p>En comparación con Ciudad de México o Guadalajara, los precios en Puerto Vallarta son competitivos y la experiencia incluye la posibilidad de recuperarte en un destino turístico de clase mundial.</p>
-
 <h2>¿Quién es candidata/o para la armonización facial?</h2>
 <p>Prácticamente cualquier persona adulta que desee mejorar sus rasgos de manera natural y sin cirugía. Los casos más frecuentes:</p>
 <ul>

@@ -1,6 +1,12 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
+// AUTH_SECRET is required in production; provide a fallback so the module
+// does not throw at import time on Preview deployments without the env var.
+if (!process.env.AUTH_SECRET) {
+  process.env.AUTH_SECRET = process.env.NEXTAUTH_SECRET ?? "placeholder-secret-replace-in-vercel";
+}
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     Credentials({

@@ -36,7 +36,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: url,
       languages: { es: "https://madeiramedicalgroup.com/es/blog", en: "https://madeiramedicalgroup.com/en/blog" },
     },
-    openGraph: { title, description, url, type: "website", siteName, locale: isEn ? "en_US" : "es_MX" },
+    openGraph: { title, description, url, type: "website", siteName, locale: isEn ? "en_US" : "es_MX", images: [{ url: "https://madeiramedicalgroup.com/hero-photo.jpg", width: 1600, height: 950, alt: "Blog de Salud — Madeira Medical Group" }] },
+    twitter: { card: "summary_large_image", title, description, images: ["https://madeiramedicalgroup.com/hero-photo.jpg"] },
     robots: { index: true, follow: true },
   };
 }

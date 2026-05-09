@@ -52,7 +52,9 @@ export default async function BlogIndexPage({ params }: Props) {
     getSiteConfig("SITE").catch(() => null),
   ]);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const posts: any[] = postsFromDb.length > 0 ? postsFromDb : getPostsByLang(lang);
+  const posts: any[] = postsFromDb.length > 0
+    ? postsFromDb
+    : getPostsByLang(lang).map((p) => ({ ...p, cover_image: p.coverImage, doctor_slug: p.doctorSlug, specialty_slug: p.specialtySlug }));
   const SITE = { ...(siteConfig ?? SITE_FALLBACK), ...SITE_FALLBACK, ...(siteConfig ?? {}) };
 
   // Split into featured (first 1) + rest

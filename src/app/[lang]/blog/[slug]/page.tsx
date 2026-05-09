@@ -7,7 +7,7 @@ import { getAllDoctors } from "@/lib/db/doctors";
 import { getAllSpecialties } from "@/lib/db/specialties";
 import { getSiteConfig } from "@/lib/db/config";
 import { SITE as SITE_FALLBACK } from "@/lib/content";
-import { BLOG_POSTS as BLOG_FALLBACK } from "@/lib/blog";
+import { BLOG_POSTS as BLOG_FALLBACK, getPost as getPostFallback } from "@/lib/blog";
 import { getDict } from "@/lib/i18n";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -60,14 +60,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { lang, slug } = await params;
-  const [post, DOCTORS_LIST, SPECIALTIES_MAP, allPosts, siteConfig] = await Promise.all([
+  const [postFromDb, DOCTORS_LIST, SPECIALTIES_MAP, allPostsFromDb, siteConfig] = await Promise.all([
     getPostBySlug(slug, lang),
     getAllDoctors().catch(() => []),
     getAllSpecialties().catch(() => []),
     getAllPosts(lang).catch(() => []),
     getSiteConfig("SITE").catch(() => null),
   ]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const post: any = postFromDb ?? (() => {
+    const fb = getPostFallback(slug, lang);
+    if (!fb) return null;
+    return { ...fb, cover_image: fb.coverImage, doctor_slug: fb.doctorSlug, specialty_slug: fb.specialtySlug, published_at: fb.publishedAt };
+  })();
   if (!post) notFound();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const allPosts: any[] = allPostsFromDb.length > 0 ? allPostsFromDb : BLOG_FALLBACK.filter(p => p.lang === lang).map(p => ({ ...p, cover_image: p.coverImage, doctor_slug: p.doctorSlug, specialty_slug: p.specialtySlug }));
 
   const SITE = { ...SITE_FALLBACK, ...(siteConfig ?? {}) };
   const d = getDict(lang);

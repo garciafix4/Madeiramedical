@@ -6,6 +6,7 @@ import { getAllDoctors } from "@/lib/db/doctors";
 import { getAllSpecialties } from "@/lib/db/specialties";
 import { getSiteConfig } from "@/lib/db/config";
 import { SITE as SITE_FALLBACK } from "@/lib/content";
+import { getPostsByLang } from "@/lib/blog";
 import { getDict } from "@/lib/i18n";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -44,12 +45,14 @@ export default async function BlogIndexPage({ params }: Props) {
   const { lang } = await params;
   const d = getDict(lang);
   const isEn = lang === "en";
-  const [posts, DOCTORS_LIST, SPECIALTIES_MAP, siteConfig] = await Promise.all([
+  const [postsFromDb, DOCTORS_LIST, SPECIALTIES_MAP, siteConfig] = await Promise.all([
     getAllPosts(lang).catch(() => []),
     getAllDoctors().catch(() => []),
     getAllSpecialties().catch(() => []),
     getSiteConfig("SITE").catch(() => null),
   ]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const posts: any[] = postsFromDb.length > 0 ? postsFromDb : getPostsByLang(lang);
   const SITE = { ...(siteConfig ?? SITE_FALLBACK), ...SITE_FALLBACK, ...(siteConfig ?? {}) };
 
   // Split into featured (first 1) + rest

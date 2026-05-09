@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { SessionProvider } from "next-auth/react";
 
+export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin — Madeira Medical Group" };
 
 export default async function DashboardLayout({
@@ -10,7 +11,12 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await auth();
+  let session = null;
+  try {
+    session = await auth();
+  } catch {
+    // AUTH_SECRET missing or auth error — redirect to login
+  }
   if (!session) redirect("/admin/login");
 
   return (
